@@ -7,10 +7,11 @@
 }
 
 body{
-    background-color: #FF7F50;
+    background-color: #ddddddcd;
 }
 
 .main{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
 }
@@ -20,21 +21,11 @@ body{
     width: 100%;
     border: 2px solid white;
 }
-.main .left_side{
+/* .main .left_side{
     height: 84vh;
     width: 75%;
     border: 2px solid white;
-}
-.main .container{
-    height: 84vh;
-    width: 25%;
-    border: 2px solid white;
-}
-.main .music_player{
-    height: 8vh;
-    width: 100%;
-    border: 2px solid white;
-}
+} */
 
 .head{
     display: flex;
@@ -43,9 +34,8 @@ body{
     background-color: #f7f7f7;
     box-shadow: 0 5px 15px rgb(0,0,0,0.6);
     position: sticky ;
-    top: 0;
-    left: 0;
-    
+    /* top: 0;
+    left: 0; */ 
 }
 
 #navbar{
@@ -113,7 +103,6 @@ body{
 
 }
 
-
 @keyframes underlineit{
     0%{
         width: 0%;
@@ -123,6 +112,7 @@ body{
     }
 }
 
+/* default for all buttons  */
 button {
     height: 32px;
     padding: 5px 15px;
@@ -130,11 +120,288 @@ button {
     border: none;
     font-size: 1rem;
     font-weight: 600;
+    border: 1px solid #cdcdcd;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.25s ease-in-out;
 }
-button:hover{
+.main .head button:hover{
     background-color: #f77842;
 }
 
+/* container */
+.main .container{
+    height: 84vh;
+    width: 100%;
+    border: 2px solid white;
+}
+
+.main .container .top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+    margin: 1px;
+    border: 1px solid #21a521;
+}
+.main .container .top img{
+    
+    height: 80%;
+    margin: 0 2%;
+    top: 4%;
+    border-radius: 50%;
+    border: 4px solid #03c7c0;
+}
+
+.main .container .top p{
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+}
+.main .container .top p::-webkit-scrollbar{
+    display: none;
+}
+
+.main .container .top button{
+    margin: 1%;
+    height: 40px;
+    width: fit-content;
+}
+
+.main .container .top #play{
+    background-color: #55fff9;
+}
+
+.main .container .top #play:hover{
+    background-color: #23f1ea;
+}
+.main .container .top #add:hover{
+    border: 1px solid #03c7c0;
+}
+
+.main .container .content{
+    width: 100%;
+    height: 60%;
+    border: 1px solid #23f1ea;
+    overflow: auto;
+}
+
+.main .container .content div{
+    width: 100%;
+    height: 50%;
+    border: 1px solid #f77842;
+}
+
+.main .container .content::-webkit-scrollbar{
+    display: none;
+}
+
+
+/* queue */
+
+.main .queue{
+    /* border: 2px solid #03c7c0; */
+    background-color:#f7f7f7;
+    position: absolute;
+    overflow: auto;
+    height: 40px;
+    width: 60px;
+    left: 48%;
+    border: 2px solid #03c7c0;
+    border-radius: 8px;
+    bottom:calc(8vh - 4px) ;
+    /* bottom:8vh; */
+
+    
+    transition:all 0.5s ease-in-out;
+}
+
+.main .queue:hover{
+    left: 35%;
+    width: 30%;
+    height:70vh;
+}
+
+.main .queue::-webkit-scrollbar{
+    display: none;
+}
+
+.main .queue .queue_head{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+    border-bottom:1px solid #cdcdcd;
+    height: 40px;
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    background-color: #f7f7f7;
+    
+}
+
+.main .queue .queue_head h3{
+    position: absolute;
+    top: 9px;
+    left: 3%;
+}
+
+.main .queue .queue_head .queue_buttons{
+    display: none;
+    /* display: block; */
+    position: absolute;
+    top: 7px;
+    right: 2%;
+}
+
+.main .queue:hover .queue_buttons{
+    display: block;
+}
+/* change in queue buttons on hovering queue */
+
+.main .queue .queue_head button{
+    height: 25px;
+    padding: 5px 12px;
+    border: 1px solid #cdcdcd ;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.main .queue .queue_head .add{
+    background-color: #55fff9;
+}
+
+.main .queue .queue_head .add:hover{
+    background-color: #23f1ea;
+}
+
+.main .queue .queue_head .remove:hover{
+    border: 1px solid #55fff9 ;   
+}
+
+.main .queue li{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 8px 4px;
+    
+}
+
+.main .queue li img{
+    height: 40px;
+    width: 40px;
+}
+
+.main .queue li div{
+    width: 75%;
+}
+
+.main .queue li h5{
+    padding: 1px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* for showing dots */
+    white-space: nowrap;
+}
+
+.main .queue li i{
+    font-size: 20px;
+}
+
+/* music player */
+
+.main .music_player{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    width: 100%;
+    border: 2px solid white;
+    background-color: #f7f7f7;
+    box-shadow: 0 -5px 15px rgb(0,0,0,0.6);
+    position: sticky ;
+}
+
+.music_player img{
+    width: 50px;
+    height: 50px;
+    border-radius: 2px;
+    margin: 4px;
+}
+
+.music_player .song_detail{
+    display: flex;
+    align-items: center;
+}
+
+ .music_player .icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    min-width:175px;
+ }
+
+ .music_player .icons .play{
+    font-size: 30px;
+ }
+
+ .music_player .icons .bi{
+    
+ }
+
+ .music_player .bi-repeat{
+    
+ }
+ .music_player .bi-repeat-1{  
+    display: none;
+ }
+ .music_player .bi-shuffle{
+    display: none;
+ }
+ .music_player .bi-pause-fill{
+    display: none;
+ }
+ .music_player .bi-play-fill{
+    
+ }
+
+
+ .music_player .music_time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    margin:0 2px;
+ }
+ .music_player .progress_bar{
+    position: relative;
+    height: 2px;
+    width: 90%;
+    background-color:#cdcdcd;
+    border-radius: 5px;
+    margin: 0 1%;
+ }
+
+ .music_player .progress_bar .bar{
+    position: absolute;
+    height: 2px;
+    width:64%;
+    border-radius: 5px;
+    background-color:#03c7c0;
+ }
+
+ .music_player .progress_bar .bar .point{
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #03c7c0;
+    box-shadow: 1px 0 2px rgba(49, 199, 249, 0.6);
+    top: -1.4px;
+    right: -1px;
+    
+ }
