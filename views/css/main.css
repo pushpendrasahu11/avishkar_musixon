@@ -256,7 +256,7 @@ button {
     /* border: 1px solid #03c7c0; */
 }
 
-.main .container .content .list li .image_play{
+.main li .image_play{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -380,7 +380,9 @@ button {
     border-radius: 8px;
     bottom:calc(8vh - 4px) ;
     /* bottom:8vh; */
-
+    /* left: 35%;
+    width: 30%;
+    height:70vh; */
     transition:all 0.5s ease-in-out;
 }
 
@@ -395,14 +397,12 @@ button {
 }
 
 .main .queue .queue_head{
-    /* display: flex;
-    align-items: center;
-    justify-content: space-around; */
     border-bottom:1px solid #cdcdcd;
     height: 40px;
     width: 100%;
     position: sticky;
     top: 0px;
+    z-index: 2;
     background-color: #f7f7f7;
     
 }
@@ -457,17 +457,40 @@ button {
     
 }
 
+.main .queue li div{
+    width:75%;
+}
+
+.main .queue li .image_play{
+    width: 40px;
+    height: 40px;
+}
+
 .main .queue li img{
     height: 40px;
     width: 40px;
+    border-radius: 4px;
+    position: relative;
 }
 
-.main .queue li div{
-    width: 75%;
+.main .queue li .image_play .play_icon{
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+.main .queue li .image_play .play_icon:hover{
+    opacity:0.7;
 }
 
+.main .queue li h4,
 .main .queue li h5{
+    width: 80%;
+    font-size: 13px;
     padding: 1px 0px;
+    margin: 0px 4px;
     overflow: hidden;
     text-overflow: ellipsis;
     /* for showing dots */

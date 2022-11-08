@@ -1,0 +1,98 @@
+[
+        {
+                "id": 1,
+                "song_name":"<h4>Deva Deva (From \"Brahmastra\")</h4> <h5>Pritam,Arijit Singh, Amitabh Bhattacharya, Jonita Gandhi, T Series</h5>",
+                "song_image":"../images/song1.jpg",
+                "song_link":"../songs/song1.mp3"
+        },
+        {
+                "id": 2,
+                "song_name":"<h4>Tu Hi Hai</h4> <h5>Rahul Mishra</h5>",
+                "song_image":"../images/song2.jpg",
+                "song_link":"../songs/song2.mp3"
+        },
+        {
+                "id": 3,
+                "song_name":"<h4>Aaj Phir</h4><h5>Arko, Laxmikant - Pyarelal, Arijit Singh, Samira Koppikar</h5>",
+                "song_image":"../images/song3.jpg",
+                "song_link":"../songs/song3.mp3"
+        },
+        {
+                "id": 4,
+                "song_name":"<h4>Saanson Ko</h4><h5>Toshi Sabri, Arijit Singh ft. Sharib Toshi & Arijit</h5>",
+                "song_image":"../images/song4.jpg",
+                "song_link":"../songs/song4.mp3"
+        },
+        {
+                "id": 5,
+                "song_name":"<h4>Humdard</h4><h5>Mithoon, Arijit Singh</h5>",
+                "song_image":"../images/song5.jpg",
+                "song_link":"../songs/song5.mp3"
+        },
+        {
+                "id": 6,
+                "song_name":"<h4>Main Tenu Samjhawan - Reprise</h4><h5>Pawni Pandey</h5>",
+                "song_image":"../images/song6.jpg",
+                "song_link":"../songs/song6.mp3"
+        },
+        {
+                "id": 7,
+                "song_name":"<h4>Baaton Ko Teri</h4><h5>Arijit Singh, Himesh Reshammiya</h5>",
+                "song_image":"../images/song7.jpg",
+                "song_link":"../songs/song7.mp3"
+        },
+        {
+                "id": 8,
+                "song_name":"<h4>Muskurane (Romantic)</h4><h5>Jeet Gannguli, Arijit Singh</h5>",
+                "song_image":"../images/song8.jpg",
+                "song_link":"../songs/song8.mp3"
+        },
+        {
+                "id": 9,
+                "song_name":"<h4>Bandeya (From \"Dil Juunglee\")</h4><h5>Toshi Sabri ft. Arijit Singh</h5>",
+                "song_image":"../images/song9.jpg",
+                "song_link":"../songs/song9.mp3"
+        },
+        {
+                "id": 10,
+                "song_name":"<h4>Agar Tum Saath Ho</h4><h5>Alka Yagnik, Arijit Singh</h5>",
+                "song_image":"../images/song10.jpg",
+                "song_link":"../songs/song10.mp3"
+        },
+        {
+                "id": 11,
+                "song_name":"<h4>Baarish Mein Tum</h4><h5>Neha Kakkar, Rohanpreet Singh, ShowKidd, Harsh Kargeti</h5>",
+                "song_image":"../images/song11.jpg",
+                "song_link":"../songs/song11.mp3"
+        },
+        {
+                "id": 12,
+                "song_name":"<h4>Gali Gali</h4><h5>Neha Kakkar</h5>",
+                "song_image":"../images/song12.jpg",
+                "song_link":"../songs/song12.mp3"
+        },
+        {
+                "id": 13,
+                "song_name":"<h4>Taaron Ke Shehar</h4><h5>Neha Kakkar, Jubin Nautiyal, Jaani</h5>",
+                "song_image":"../images/song13.jpg",
+                "song_link":"../songs/song13.mp3"
+        },
+        {
+                "id": 14,
+                "song_name":"<h4>Yaad Piya Ki Aane Lagi</h4><h5>Neha Kakkar, Tanishk Bagchi</h5>",
+                "song_image":"../images/song14.jpg",
+                "song_link":"../songs/song14.mp3"
+        },
+        {
+                "id": 15,
+                "song_name":"<h4>O Sajna</h4><h5>Neha Kakkar, Tanishk Bagchi, Jaani, Lalit Sen</h5>",
+                "song_image":"../images/song15.jpg",
+                "song_link":"../songs/song15.mp3"
+        },
+        {
+                "id": 16,
+                "song_name":"<h4>Hai Dil Ye Mera </h4><h5>Mithoon, Arijit Singh</h5>",
+                "song_image":"../images/song16.jpg",
+                "song_link":"../songs/song16.mp3"
+        }
+]
