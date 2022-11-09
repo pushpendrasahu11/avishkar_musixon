@@ -500,6 +500,7 @@ button {
     opacity: 0;
     transition: all 0.3s linear;
 }
+
 .main .queue li .image_play .play_icon:hover{
     opacity:0.9;
 }
@@ -536,21 +537,37 @@ button {
     position: absolute;
     height: 4px;
     width: 100%;
+    width: calc(100% - 1px);
     background-color:#cdcdcd;
     border-radius: 5px;
     top: -4px;
-    margin: 0 1px;
+    left: 0;
+    /* margin: 0 2px; */
  }
 
- .music_player .progress_bar .bar{
+ .music_player .progress_bar #played_length{
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    opacity: 0.5;
+ }
+
+ .music_player .progress_bar #bar{
     position: absolute;
     height: 100%;
-    width:70%;
+    width:0%;
     border-radius: 5px;
     background-color:#03c7c0;
+    transition: all 1.8s linear;
  }
 
- .music_player .progress_bar .bar .point{
+ /* .music_player .progress_bar #bar{
+
+ } */
+
+ .music_player .progress_bar #bar #point{
     position: absolute;
     height: 6px;
     width: 6px;

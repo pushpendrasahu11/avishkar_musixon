@@ -73,8 +73,9 @@
         <section class="music_player">
 
             <div class="progress_bar">
-                <div class="bar">
-                    <div class="point"></div>
+                <input type="range" name="" id="played_length" min="0" max="100" value="0">
+                <div id="bar">
+                    <div id="point"></div>
                 </div>
             </div>        
             
@@ -97,14 +98,20 @@
             </div>
 
             <div class="music_time" style="display:flex;">
-                <div class="current_time">00:00</div>
+                <div id="current_time">00:00</div>
                 <span>/</span>
-                <div class="end_time">04:53</div>
+                <div id="end_time">05:41</div>
             </div>
             
-            <i class="bi bi-volume-mute-fill"></i>
+            <div class="volume">
+                <i class="bi bi-volume-up-fill" id="volume_icon"></i>
+                <input type="range" name="" id="current_volume" min="0" max="100" value="0">
+                
+            </div>
+
+            <!-- <i class="bi bi-volume-mute-fill"></i>
             <i class="bi bi-volume-up-fill"></i>
-            <i class="bi bi-volume-down-fill"></i>
+            <i class="bi bi-volume-down-fill"></i> -->
         </section>
     </div>
 </body>

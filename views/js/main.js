@@ -99,7 +99,7 @@ for(let i=0;i<artistdata.length;i++){
 
 // playing song
 
-const music = new Audio('../songs/song1.mp3')
+const music = new Audio('../songs/song1.mp3');
 
 let music_play_icon = document.getElementById('music_play_icon');
 
@@ -141,16 +141,13 @@ function playSong(array) {
             music_play_icon.classList.add('bi-pause-fill');
             // console.log(music.src);
 
+            // played_length.value=0;
+
             allBackground();
             let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
             queue_position.style.background = "rgba(230, 230, 230, 0.9)";
-            console.log(ele.src);
             allPlayButton();
-            console.log(ele);
-            console.log(ele.src);
-            ele.src=`../images/play.svg`
-            console.log(item);
-            console.log(ele.src);
+            item.src=`../images/pause.svg`
         })
     })
     
@@ -159,7 +156,7 @@ function playSong(array) {
 function allPlayButton(){
     let myArray = Array.from(document.getElementsByClassName('play_icon'));
     myArray.forEach((ele) =>{
-        ele.src=`../images/pause.svg`
+        ele.src=`../images/play.svg`
     })
 }
 function allBackground(){
@@ -169,22 +166,76 @@ function allBackground(){
     })
 }
 
-// song_array.forEach((item) => {
-//     item.addEventListener('click', (ele) => {
-//         let song_id = ele.target.id;
-//         console.log(song_id);
-//         music.src=`../songs/song${song_id}.mp3`;
-//         current_image.src= `../images/song${song_id}.jpg`;
-        
-//         let songname = songs.find((e) => {
-//             return e.id==song_id;
-//         })
+let current_time = document.getElementById('current_time');
+let end_time = document.getElementById('end_time');
 
-//         current_song.innerHTML=songname.song_name; 
+let played_length = document.getElementById('played_length');
+let  bar= document.getElementById('bar');
+// let  point= document.getElementById('point');
 
-//         music.play();
-//         // console.log(music.src);
-//     })
-// })
+music.addEventListener('timeupdate', ()=>{
+
+    // setTimeout( function (){
+    let music_current_time = music.currentTime;
+    let music_end_time = music.duration;
+
+    let current_minutes = Math.floor(music_current_time/60 );
+    let current_seconds = Math.floor(music_current_time%60 );
+
+    let end_minutes = Math.floor(music_end_time/60 );
+    let end_seconds = Math.floor(music_end_time%60 );
+
+    if(current_seconds < 10) current_seconds = `0${current_seconds}`;
+    if(end_seconds < 10) end_seconds = `0${end_seconds}`;
+
+    current_time.innerHTML = `${current_minutes}:${current_seconds}`
+    if(music_end_time){
+        end_time.innerHTML = `${end_minutes}:${end_seconds}`;
+    }
+    
+
+    let current_length = parseInt((music_current_time / music_end_time)*100);
+    
+
+    if(music_end_time){
+        played_length.value = current_length;
+    }
+
+    console.log(played_length.value);
+    bar.style.width= `${played_length.value}%`
+
+    // }
+    // ,300)
+
+    // let music_current_time = music.currentTime;
+    // let music_end_time = music.duration;
+
+    // let current_minutes = Math.floor(music_current_time/60 );
+    // let current_seconds = Math.floor(music_current_time%60 );
+
+    // let end_minutes = Math.floor(music_end_time/60 );
+    // let end_seconds = Math.floor(music_end_time%60 );
+
+    // if(current_seconds < 10) current_seconds = `0${current_seconds}`;
+    // if(end_seconds < 10) end_seconds = `0${end_seconds}`;
+
+    // current_time.innerHTML = `${current_minutes}:${current_seconds}`
+    // end_time.innerHTML = `${end_minutes}:${end_seconds}`
+
+    // let current_length = parseInt((music_current_time / music_end_time)*100);
+    // played_length.value = current_length;
+
+    // console.log(played_length.value);
+
+});
+
+
+played_length.addEventListener("input", ()=>{
+    music.currentTime =  played_length.value * music.duration / 100;
+    console.log(music.currentTime);
+})
+
+
+ 
 
 console.log('ok');
