@@ -256,6 +256,12 @@ button {
     /* border: 1px solid #03c7c0; */
 }
 
+.main .container .content .list .songs li:hover{
+    border-radius: 10px;
+    background: rgba(236, 236, 236, 0.9);
+}
+
+
 .main li .image_play{
     display: flex;
     justify-content: center;
@@ -353,9 +359,17 @@ button {
     border-radius: 50%;
 }
 
-.main .container .content .list .artists li .play_icon{
+.main .container .content .list .artists li .play_artist{
     width: 50px; 
     height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.main .container .content .list .artists li:hover .play_artist{
+    opacity:0.9;
 }
 
 .main .container .content .list .artists li h4{
@@ -380,9 +394,9 @@ button {
     border-radius: 8px;
     bottom:calc(8vh - 4px) ;
     /* bottom:8vh; */
-    /* left: 35%;
+    left: 35%;
     width: 30%;
-    height:70vh; */
+    height:70vh;
     transition:all 0.5s ease-in-out;
 }
 
@@ -453,9 +467,14 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 8px 4px;
+    padding: 4px 2px;
     
+    /* padding: 8px 4px; */
 }
+
+/* .main .queue li:hover{
+    background: rgba(230, 230, 230, 0.9);
+} */
 
 .main .queue li div{
     width:75%;
@@ -482,7 +501,7 @@ button {
     transition: all 0.3s linear;
 }
 .main .queue li .image_play .play_icon:hover{
-    opacity:0.7;
+    opacity:0.9;
 }
 
 .main .queue li h4,
@@ -545,7 +564,7 @@ button {
 .music_player .song_detail{
     display: flex;
     align-items: center;
-    width: 30%;
+    /* width: 30%; */
     min-width: 280px;
 }
 
@@ -556,8 +575,12 @@ button {
     margin: 4px;
 }
 
+.music_player .song_detail #currentsong{
+    width: 30%;
+}
+
 .music_player .song_detail h5{
-    width: 80%;
+    width: 100%;
     max-width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -589,11 +612,9 @@ button {
  .music_player .bi-shuffle{
     display: none;
  }
- .music_player .bi-pause-fill{
-    display: none;
- }
  .music_player .bi-play-fill{
     
+
  }
 
  .music_player .music_time{

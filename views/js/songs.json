@@ -94,5 +94,29 @@
                 "song_name":"<h4>Hai Dil Ye Mera </h4><h5>Mithoon, Arijit Singh</h5>",
                 "song_image":"../images/song16.jpg",
                 "song_link":"../songs/song16.mp3"
+        },
+        {
+                "id": 17,
+                "song_name":"<h4>Dilbar</h4><h5>Neha Kakkar, Dhvani Bhanushali, Ikka</h5>",
+                "song_image":"../images/song17.jpg",
+                "song_link":"../songs/song17.mp3"
+        },
+        {
+                "id": 18,
+                "song_name":"<h4>Kala Chashma</h4><h5>Amar Arshi, Badshah, Neha Kakkar</h5>",
+                "song_image":"../images/song18.jpg",
+                "song_link":"../songs/song18.mp3"
+        },
+        {
+                "id": 19,
+                "song_name":"<h4>Main Tera Boyfriend</h4><h5>Arijit Singh, Neha Kakkar</h5>",
+                "song_image":"../images/song19.jpg",
+                "song_link":"../songs/song19.mp3"
+        },
+        {
+                "id": 20,
+                "song_name":"<h4>Dil Ko Karaar Aaya (From \"Sukoon\")</h4><h5>Yasser Desai, Neha Kakkar, Rajat Nagpal</h5>",
+                "song_image":"../images/song20.jpg",
+                "song_link":"../songs/song20.mp3"
         }
 ]
