@@ -1,0 +1,82 @@
+[
+    {
+            "id": 1,
+            "artist_name":"<h4>Arijit Singh</h4>",
+            "artist_image":"../images/artist1.jpg"
+    },
+    {
+            "id": 2,
+            "artist_name":"<h4>Neha Kakkar</h4>",
+            "artist_image":"../images/artist2.jpg"
+    },
+    {
+            "id": 3,
+            "artist_name":"<h4>B Praak</h4>",
+            "artist_image":"../images/artist3.jpg"
+    },
+    {
+            "id": 4,
+            "artist_name":"<h4>Kumar Sanu</h4>",
+            "artist_image":"../images/artist4.jpg"
+    },
+    {
+            "id": 5,
+            "artist_name":"<h4>Rahat Fateh Ali Khan</h4>",
+            "artist_image":"../images/artist5.jpg"
+    },
+    {
+            "id": 6,
+            "artist_name":"<h4>Himesh Reshammiya</h4>",
+            "artist_image":"../images/artist6.jpg"
+    },
+    {
+            "id": 7,
+            "artist_name":"<h4>Udit Narayan</h4>",
+            "artist_image":"../images/artist7.jpg"
+    },
+    {
+            "id": 8,
+            "artist_name":"<h4>Darshan Raval</h4>",
+            "artist_image":"../images/artist8.jpg"
+    },
+    {
+            "id": 9,
+            "artist_name":"<h4>Jubin Nautiyal</h4>",
+            "artist_image":"../images/artist9.jpg"
+    },
+    {
+            "id": 10,
+            "artist_name":"<h4>Yo Yo Honey Singh</h4>",
+            "artist_image":"../images/artist10.jpg"
+    },
+    {
+            "id": 11,
+            "artist_name":"<h4>Shreya Ghoshal</h4>",
+            "artist_image":"../images/artist11.jpg"
+    },
+    {
+            "id": 12,
+            "artist_name":"<h4>Alka Yagnik</h4>",
+            "artist_image":"../images/artist12.jpg"
+    },
+    {
+            "id": 13,
+            "artist_name":"<h4>Sunidhi Chauhan</h4>",
+            "artist_image":"../images/artist13.jpg"
+    },
+    {
+            "id": 14,
+            "artist_name":"<h4>Javed Ali</h4>",
+            "artist_image":"../images/artist14.jpg"
+    },
+    {
+            "id": 15,
+            "artist_name":"<h4>Armaan Malik</h4>",
+            "artist_image":"../images/artist15.jpg"
+    },
+    {
+            "id": 16,
+            "artist_name":"<h4>Sonu Nigam</h4>",
+            "artist_image":"../images/artist16.jpg"
+    }
+]
