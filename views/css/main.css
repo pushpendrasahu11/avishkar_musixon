@@ -551,7 +551,7 @@ button {
     width: 100%;
     height: 4px;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0;
  }
 
  .music_player .progress_bar #bar{
@@ -560,7 +560,7 @@ button {
     width:0%;
     border-radius: 5px;
     background-color:#03c7c0;
-    transition: all 1.8s linear;
+    transition: all 1s linear;
  }
 
  /* .music_player .progress_bar #bar{
@@ -629,10 +629,12 @@ button {
  .music_player .bi-shuffle{
     display: none;
  }
- .music_player .bi-play-fill{
-    
+ .music_player .bi-music-note-list{
 
  }
+/* .music_player .bi-music-note-list:hover ~ .queue{
+    height: 50vh;
+} */
 
  .music_player .music_time{
     font-weight: 600;
@@ -651,20 +653,8 @@ button {
     display: none;
 }
 
-.music_player .volume{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
 
-.music_player .volume #current_volume{
-    width: 20px;
-    height: 100px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    -webkit-appearance: slider-vertical;
-}
+
+
 
 

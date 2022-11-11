@@ -24,16 +24,6 @@ for (let i=0; i<my_list_length;i++){
 let data = [...songs];
 // [...] to make clone
 
-// function shuffleArray(array) {
-//     for (var i = array.length - 1; i > 0; i--) {
-//         var j = Math.floor(Math.random() * (i + 1));
-//         var temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//     }
-// }
-
-// shuffleArray(data);
 
 let tar1 = document.getElementById('list01').getElementsByClassName('songs')[0];
 
@@ -100,6 +90,7 @@ for(let i=0;i<artistdata.length;i++){
 // playing song
 
 const music = new Audio('../songs/song1.mp3');
+let current_song_id=0;
 
 let music_play_icon = document.getElementById('music_play_icon');
 
@@ -116,10 +107,9 @@ music_play_icon.addEventListener('click', ()=>{
 })
 
 let song_array= Array.from(document.getElementsByClassName('play_icon'));
-//let queue_array= Array.from(document.getElementsByClassName(''));
 let current_image= document.getElementById('current_image');
 let current_song= document.getElementById('current_song');
-console.log(song_array[4]);
+// console.log(song_array[4]);
 
 playSong(song_array);
 
@@ -127,6 +117,7 @@ function playSong(array) {
     array.forEach((item) => {
         item.addEventListener('click', (ele) => {
             let song_id = ele.target.id;
+            current_song_id = song_id;
             console.log(song_id);
             music.src=`../songs/song${song_id}.mp3`;
             current_image.src= `../images/song${song_id}.jpg`;
@@ -201,41 +192,78 @@ music.addEventListener('timeupdate', ()=>{
         played_length.value = current_length;
     }
 
-    console.log(played_length.value);
-    bar.style.width= `${played_length.value}%`
-
-    // }
-    // ,300)
-
-    // let music_current_time = music.currentTime;
-    // let music_end_time = music.duration;
-
-    // let current_minutes = Math.floor(music_current_time/60 );
-    // let current_seconds = Math.floor(music_current_time%60 );
-
-    // let end_minutes = Math.floor(music_end_time/60 );
-    // let end_seconds = Math.floor(music_end_time%60 );
-
-    // if(current_seconds < 10) current_seconds = `0${current_seconds}`;
-    // if(end_seconds < 10) end_seconds = `0${end_seconds}`;
-
-    // current_time.innerHTML = `${current_minutes}:${current_seconds}`
-    // end_time.innerHTML = `${end_minutes}:${end_seconds}`
-
-    // let current_length = parseInt((music_current_time / music_end_time)*100);
-    // played_length.value = current_length;
-
     // console.log(played_length.value);
+    bar.style.width= `${played_length.value}%`
 
 });
 
-
 played_length.addEventListener("input", ()=>{
     music.currentTime =  played_length.value * music.duration / 100;
-    console.log(music.currentTime);
+    // console.log(music.currentTime);
 })
 
 
+ let play_next = document.getElementById('play_next');
+ let play_back = document.getElementById('play_back');
+
+
  
+play_back.addEventListener('click', () => {
+        current_song_id--;
+        if(current_song_id<1){
+            current_song_id = songs.length;
+        }
+        let song_id = current_song_id;
+        console.log("next"+song_id);
+            music.src=`../songs/song${song_id}.mp3`;
+            current_image.src= `../images/song${song_id}.jpg`;
+            let songname = songs.find((e) => {
+                return e.id==song_id;
+            })
+    
+            current_song.innerHTML=songname.song_name; 
+
+            music.play();
+            music_play_icon.classList.remove('bi-play-fill');
+            music_play_icon.classList.add('bi-pause-fill');
+            // console.log(music.src);
+
+            // played_length.value=0;
+
+            allBackground();
+            let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
+            queue_position.style.background = "rgba(230, 230, 230, 0.9)";
+            allPlayButton();
+            // item.src=`../images/pause.svg`
+})
+
+play_next.addEventListener('click', () => {
+    current_song_id++;
+    if(current_song_id>songs.length){
+        current_song_id = 1;
+    }
+    let song_id = current_song_id;
+    console.log("next"+song_id);
+        music.src=`../songs/song${song_id}.mp3`;
+        current_image.src= `../images/song${song_id}.jpg`;
+        let songname = songs.find((e) => {
+            return e.id==song_id;
+        })
+
+        current_song.innerHTML=songname.song_name; 
+
+        music.play();
+        music_play_icon.classList.remove('bi-play-fill');
+        music_play_icon.classList.add('bi-pause-fill');
+        // console.log(music.src);
+
+        // played_length.value=0;
+
+        allBackground();
+        let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
+        queue_position.style.background = "rgba(230, 230, 230, 0.9)";
+        allPlayButton();
+        // item.src=`../images/pause.svg`
+})
 
 console.log('ok');
