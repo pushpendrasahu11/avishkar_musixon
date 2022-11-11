@@ -394,9 +394,9 @@ button {
     border-radius: 8px;
     bottom:calc(8vh - 4px) ;
     /* bottom:8vh; */
-    left: 35%;
+    /* left: 35%;
     width: 30%;
-    height:70vh;
+    height:70vh; */
     transition:all 0.5s ease-in-out;
 }
 
@@ -651,5 +651,20 @@ button {
     display: none;
 }
 
+.music_player .volume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.music_player .volume #current_volume{
+    width: 20px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    -webkit-appearance: slider-vertical;
+}
 
 
