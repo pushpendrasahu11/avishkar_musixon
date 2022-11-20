@@ -272,6 +272,7 @@ button {
     height: 140px;
 }
 
+
 /* .main .container .content .list .songs li .image_play::after{
     content: '';
     height: 125px;
@@ -297,12 +298,87 @@ button {
     border-radius: 50%;
     position: absolute;
     opacity: 0;
-    transition: all 0.3s linear;
+    transition: all 0.3s ease-in-out;
+    /* top: 30px; */
 }
 
-.main .container .content .list li:hover .play_icon{
+.main .container .content .list li .bi{
+    position: absolute;
+    bottom: 7.5px;
+    font-size: 18px;
+    align-self: auto;
+    width: 62.5px;
+    border-top: 2px solid #cdcdcd;
+    text-align: center;
+    background-color: #cdcdcd;
+    padding: auto;
+    opacity: 0;
+    color: #e81224; 
+    /* display: none; */
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.main .container .content .list li .like_icon{
+    left: 12.5px;
+    border-bottom-left-radius: 10px;
+    color: #e81224; 
+    z-index: 2;
+
+}
+
+.main .container .content .list li .bi-hearts{
+    position: absolute;
+    font-size: 18px;
+    align-self: auto;
+    width: 62.5px;
+    text-align: center;
+    bottom: 10px;
+    border: none;
+    background: none;
+    left: 12.5px;
+    padding: auto;
+    opacity: 1;
+    z-index: -1;
+    
+}
+
+.main .container .content .list li .like-effect{
+    position: absolute;
+    animation: likehearts 0.5s linear ;
+}
+
+@keyframes likehearts{
+    0%{
+        bottom: 15px;
+        z-index: 1;
+        font-size: 20px;
+    }
+
+    100%{
+        bottom: 30px;
+        z-index: 1;
+        opacity: 0.8;
+        font-size: 30px;
+    }
+
+}
+
+.main .container .content .list li .bi-plus-circle{   
+    right: 12.5px;
+    color: #000000;
+    border-bottom-right-radius: 10px;
+}
+
+.main .container .content .list li:hover .play_icon,
+.main .container .content .list li:hover .like_icon,
+.main .container .content .list li:hover .bi-plus-circle
+{
+    /* top: 30px; */
     opacity:0.9;
 }
+
 
 .main .container .content .list .songs li h4{
     width: 80%;
@@ -384,6 +460,7 @@ button {
 /* queue */
 
 .main .queue{
+    z-index: 0;
     background-color:#f7f7f7;
     position: absolute;
     overflow: auto;
@@ -392,15 +469,17 @@ button {
     left: 48%;
     border: 2px solid #03c7c0;
     border-radius: 8px;
-    bottom:calc(8vh - 4px) ;
+    bottom: 0px;
     /* bottom:8vh; */
     /* left: 35%;
     width: 30%;
     height:70vh; */
-    transition:all 0.5s ease-in-out;
+    transition:all 0.4s linear;
 }
 
-.main .queue:hover{
+.main .big{
+    z-index: 1;
+    bottom:calc(8vh + 5px);
     left: 35%;
     width: 30%;
     height:70vh;
@@ -428,16 +507,12 @@ button {
 }
 
 .main .queue .queue_head .queue_buttons{
-    display: none;
-    /* display: block; */
+    display: block;
     position: absolute;
     top: 7px;
     right: 2%;
 }
 
-.main .queue:hover .queue_buttons{
-    display: block;
-}
 /* change in queue buttons on hovering queue */
 
 .main .queue .queue_head button{
@@ -536,8 +611,8 @@ button {
  .music_player .progress_bar{
     position: absolute;
     height: 4px;
-    width: 100%;
     width: calc(100% - 1px);
+    width: 100%;
     background-color:#cdcdcd;
     border-radius: 5px;
     top: -4px;
@@ -551,7 +626,7 @@ button {
     width: 100%;
     height: 4px;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0;
  }
 
  .music_player .progress_bar #bar{
@@ -560,7 +635,7 @@ button {
     width:0%;
     border-radius: 5px;
     background-color:#03c7c0;
-    transition: all 1.8s linear;
+    transition: all 1s linear;
  }
 
  /* .music_player .progress_bar #bar{
@@ -629,10 +704,23 @@ button {
  .music_player .bi-shuffle{
     display: none;
  }
- .music_player .bi-play-fill{
+ .music_player .bi-music-note-list{
     
-
  }
+ .music_player .bi-heart{
+    color: red;
+}
+.music_player .bi-hearts{
+    color: #ed4956;
+}
+.music_player .bi-heart-fill{
+    color: #cf2a3a;
+    color: #e81224;
+    /* color: red; */
+}
+/* .music_player .bi-music-note-list:hover ~ .queue{
+    height: 50vh;
+} */
 
  .music_player .music_time{
     font-weight: 600;
@@ -650,21 +738,3 @@ button {
 .music_player .bi-volume-down-fill{
     display: none;
 }
-
-.music_player .volume{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.music_player .volume #current_volume{
-    width: 20px;
-    height: 100px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    -webkit-appearance: slider-vertical;
-}
-
-
