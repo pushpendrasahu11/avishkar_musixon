@@ -30,9 +30,9 @@
                 </div>
             </ul>   
         </section>
-        <section class="container">
+                <section class="container">
             <div class="top">
-                <img src="../images/artist1.jpg" id="my" alt="">
+                <img src="../images/artist1.jpg" alt="">
                 <p id="demo">Arijit Singh is an Indian musician, singer, composer, music producer, recordist and a music programmer. At the start of his singing career, he received nominations for the Upcoming Male Vocalist of the Year award at the 2013 Mirchi Music Awards for renditions of "Phir Le Aya Dil" and "Duaa", winning the award for the latter.</p>
                 <button id="play">Play</button>
                 <button id="add"><i class="bi bi-plus-circle" style="margin-right: 4px ;"></i>Add to Favorites</button>
@@ -89,13 +89,12 @@
             
             <div class="icons">
                 <i class="bi bi-music-note-list"></i>
-                <i class="bi play bi-skip-start-fill"></i>
+                <i class="bi play bi-skip-start-fill" id="play_back"></i>
                 <i id="music_play_icon" class="bi play bi-play-fill"></i>
-                <i class="bi play bi-skip-end-fill"></i>
+                <i class="bi play bi-skip-end-fill" id="play_next"></i>
                 <i class="bi bi-repeat"></i>
                 <i class="bi bi-repeat-1"></i>
-                <i class="bi bi-shuffle"></i>
-                
+                <i class="bi bi-shuffle"></i> 
             </div>
 
             <div class="music_time" style="display:flex;">
@@ -104,10 +103,13 @@
                 <div id="end_time">05:41</div>
             </div>
             
-            <div class="volume" >
+            <!-- <div class="volume" >
                 <i class="bi bi-volume-up-fill" id="volume_icon"></i>
-                <input type="range" name="" id="current_volume" min="0" max="100" value="0">
-            </div>
+                <input type="range" name="" id="current_volume" value="60" min="0" max="100" value="0">
+                <div id="bar">
+                    <div id="point"></div>
+                </div>
+            </div> -->
 
             <!-- <i class="bi bi-volume-mute-fill"></i>
             <i class="bi bi-volume-up-fill"></i>
@@ -143,16 +145,6 @@ for (let i=0; i<my_list_length;i++){
 let data = [...songs];
 // [...] to make clone
 
-// function shuffleArray(array) {
-//     for (var i = array.length - 1; i > 0; i--) {
-//         var j = Math.floor(Math.random() * (i + 1));
-//         var temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//     }
-// }
-
-// shuffleArray(data);
 
 let tar1 = document.getElementById('list01').getElementsByClassName('songs')[0];
 
@@ -162,6 +154,9 @@ for(let i=0;i<data.length;i++){
     <div class="image_play">
         <img src="${songs[i].song_image}" alt="">
         <img class="play_icon" id="${songs[i].id}" src="../images/play.svg" alt="">
+        <i class="like_icon bi bi-heart"></i>
+        <i class="bi bi-hearts"></i>
+        <i class="bi bi-plus-circle"></i>
     </div>
     <div>
         ${songs[i].song_name}
@@ -177,6 +172,9 @@ for(let i=0;i<data.length;i++){
     <div class="image_play">
         <img src="${data[i].song_image}" alt="">
         <img class="play_icon" id="${songs[i].id}" src="../images/play.svg" alt="">
+        <i class="like_icon bi bi-heart"></i>
+        <i class="bi bi-hearts"></i>
+        <i class="bi bi-plus-circle"></i>
     </div>
     <div>
         ${data[i].song_name}
@@ -219,6 +217,7 @@ for(let i=0;i<artistdata.length;i++){
 // playing song
 
 const music = new Audio('../songs/song1.mp3');
+let current_song_id=0;
 
 let music_play_icon = document.getElementById('music_play_icon');
 
@@ -235,10 +234,9 @@ music_play_icon.addEventListener('click', ()=>{
 })
 
 let song_array= Array.from(document.getElementsByClassName('play_icon'));
-//let queue_array= Array.from(document.getElementsByClassName(''));
 let current_image= document.getElementById('current_image');
 let current_song= document.getElementById('current_song');
-console.log(song_array[4]);
+// console.log(song_array[4]);
 
 playSong(song_array);
 
@@ -246,13 +244,14 @@ function playSong(array) {
     array.forEach((item) => {
         item.addEventListener('click', (ele) => {
             let song_id = ele.target.id;
+            current_song_id = song_id;
             console.log(song_id);
             music.src=`../songs/song${song_id}.mp3`;
             current_image.src= `../images/song${song_id}.jpg`;
             let songname = songs.find((e) => {
                 return e.id==song_id;
             })
-            console.log("hrirhf1;")
+    
             current_song.innerHTML=songname.song_name; 
 
             music.play();
@@ -292,13 +291,26 @@ let played_length = document.getElementById('played_length');
 let  bar= document.getElementById('bar');
 // let  point= document.getElementById('point');
 
-let my = document.getElementById('my');
-my.src = "../images/artist1.jpg";
+let music_current_time = music.currentTime;
+let music_end_time = music.duration;
+
+// console.log(music_current_time)
+// console.log(music_end_time)
+
+if(Math.floor(music_current_time) == Math.floor(music_end_time)){
+    console.log("song enddd")
+    playNextSong();
+}
+
 music.addEventListener('timeupdate', ()=>{
 
     // setTimeout( function (){
     let music_current_time = music.currentTime;
     let music_end_time = music.duration;
+
+    
+// console.log(music_current_time)
+// console.log(music_end_time)
 
     let current_minutes = Math.floor(music_current_time/60 );
     let current_seconds = Math.floor(music_current_time%60 );
@@ -322,44 +334,160 @@ music.addEventListener('timeupdate', ()=>{
         played_length.value = current_length;
     }
 
-    console.log(played_length.value);
-    bar.style.width= `${played_length.value}%`
-
-    // }
-    // ,300)
-
-    // let music_current_time = music.currentTime;
-    // let music_end_time = music.duration;
-
-    // let current_minutes = Math.floor(music_current_time/60 );
-    // let current_seconds = Math.floor(music_current_time%60 );
-
-    // let end_minutes = Math.floor(music_end_time/60 );
-    // let end_seconds = Math.floor(music_end_time%60 );
-
-    // if(current_seconds < 10) current_seconds = `0${current_seconds}`;
-    // if(end_seconds < 10) end_seconds = `0${end_seconds}`;
-
-    // current_time.innerHTML = `${current_minutes}:${current_seconds}`
-    // end_time.innerHTML = `${end_minutes}:${end_seconds}`
-
-    // let current_length = parseInt((music_current_time / music_end_time)*100);
-    // played_length.value = current_length;
+    if(music_current_time == music_end_time){
+        console.log("song enddd")
+        playNextSong();
+    }
+    // for auto play
 
     // console.log(played_length.value);
+    bar.style.width= `${played_length.value}%`
 
 });
 
-
 played_length.addEventListener("input", ()=>{
     music.currentTime =  played_length.value * music.duration / 100;
-    console.log(music.currentTime);
+    // console.log(music.currentTime);
 })
 
 
+ let play_next = document.getElementById('play_next');
+ let play_back = document.getElementById('play_back');
+
+
  
+play_back.addEventListener('click', () => {
+        current_song_id--;
+        if(current_song_id<1){
+            current_song_id = songs.length;
+        }
+        let song_id = current_song_id;
+        console.log("next"+song_id);
+            music.src=`../songs/song${song_id}.mp3`;
+            current_image.src= `../images/song${song_id}.jpg`;
+            let songname = songs.find((e) => {
+                return e.id==song_id;
+            })
+    
+            current_song.innerHTML=songname.song_name; 
+
+            music.play();
+            music_play_icon.classList.remove('bi-play-fill');
+            music_play_icon.classList.add('bi-pause-fill');
+            // console.log(music.src);
+
+            // played_length.value=0;
+
+            allBackground();
+            let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
+            queue_position.style.background = "rgba(230, 230, 230, 0.9)";
+            allPlayButton();
+            // item.src=`../images/pause.svg`
+})
+
+play_next.onclick = function(){playNextSong()}
+
+function playNextSong(){
+    current_song_id++;
+    if(current_song_id>songs.length){
+        current_song_id = 1;
+    }
+    let song_id = current_song_id;
+    console.log("next"+song_id);
+        music.src=`../songs/song${song_id}.mp3`;
+        current_image.src= `../images/song${song_id}.jpg`;
+        let songname = songs.find((e) => {
+            return e.id==song_id;
+        })
+
+        current_song.innerHTML=songname.song_name; 
+
+        music.play();
+        music_play_icon.classList.remove('bi-play-fill');
+        music_play_icon.classList.add('bi-pause-fill');
+        // console.log(music.src);
+
+        // played_length.value=0;
+
+        allBackground();
+        let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
+        queue_position.style.background = "rgba(230, 230, 230, 0.9)";
+        allPlayButton();
+}
+
+// play_next.addEventListener('click', () => {
+//     current_song_id++;
+//     if(current_song_id>songs.length){
+//         current_song_id = 1;
+//     }
+//     let song_id = current_song_id;
+//     console.log("next"+song_id);
+//         music.src=`../songs/song${song_id}.mp3`;
+//         current_image.src= `../images/song${song_id}.jpg`;
+//         let songname = songs.find((e) => {
+//             return e.id==song_id;
+//         })
+
+//         current_song.innerHTML=songname.song_name; 
+
+//         music.play();
+//         music_play_icon.classList.remove('bi-play-fill');
+//         music_play_icon.classList.add('bi-pause-fill');
+//         // console.log(music.src);
+
+//         // played_length.value=0;
+
+//         allBackground();
+//         let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
+//         queue_position.style.background = "rgba(230, 230, 230, 0.9)";
+//         allPlayButton();
+//         // item.src=`../images/pause.svg`
+// })
+
+let queue_icon = document.getElementsByClassName("bi-music-note-list")[0];
+
+let c=1;
+queue_icon.addEventListener('click', () => {
+    if(c>0){
+        tar_queue.classList.add("big");
+        c=-c;
+    }else{
+        tar_queue.classList.remove("big");
+        c=-c;
+    }
+    
+})
+
+let like_icon =Array.from(document.getElementsByClassName('like_icon'));
+
+console.log(like_icon[32]);
+
+
+like_icon.forEach( (item,index) => {
+    item.addEventListener('click',()=>{
+        // console.log(item.className)
+        let effect = document.getElementsByClassName('bi-hearts')[index];
+        if(item.className == 'like_icon bi bi-heart'){
+            item.classList.remove('bi-heart');
+            item.classList.add('bi-heart-fill');
+            
+            effect.classList.add('like-effect');
+            
+            console.log(document.getElementsByClassName('bi-hearts')[index].className);
+        }
+        else{
+            effect.classList.remove('like-effect');
+            item.classList.remove('bi-heart-fill');
+            item.classList.add('bi-heart');
+        }
+       
+    })
+})
+
+
 
 console.log('ok');
+
 
 </script>
 
