@@ -159,8 +159,7 @@ async function myfun(id){
         url: 'https://soundcloud-scraper.p.rapidapi.com/v1/track/metadata',
         params: {track: id},
         headers: {
-          'X-RapidAPI-Key': '4a49e5c414msh16c08ef3c3094c1p103c2djsne2ac2f815c89',
-          'X-RapidAPI-Host': 'soundcloud-scraper.p.rapidapi.com'
+          
         }
       };
       let song_url ;
