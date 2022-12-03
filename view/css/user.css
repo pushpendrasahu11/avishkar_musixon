@@ -1,0 +1,51 @@
+.containers{
+    height: 84vh;
+    width: 100%;
+    overflow: auto;
+}
+
+
+.containers::-webkit-scrollbar{
+    display: none;
+}
+ .containers .top{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 36%;
+    /* border: 1px solid #21a521; */
+}
+ .containers .top img{
+    height: 80%;
+    margin: 0 2%;
+    top: 4%;
+    border-radius: 50%;
+    border: 4px solid #03c7c0;
+}
+
+ .containers .top p{
+    width: 40%;
+    height: 50%;
+    overflow: auto;
+    font-size: 20px;
+}
+ .containers .top p::-webkit-scrollbar{
+    display: none;
+}
+
+ .containers .top button{
+    margin: 0 1%;
+    height: 40px;
+    width: fit-content;
+}
+
+ .containers .top #play{
+    background-color: #55fff9;
+}
+
+ .containers .top #play:hover{
+    background-color: #23f1ea;
+}
+ .containers .top #add:hover{
+    border: 1px solid #03c7c0;
+}
