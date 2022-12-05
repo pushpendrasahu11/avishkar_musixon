@@ -2,7 +2,6 @@ import songapi from './songapi.json' assert {type: 'json'};
 
 // imprting json files
 
-// console.log(sample.audio[0].url);
 
 // code for working of sliding buttons for each list
 let my_list_length=document.getElementsByClassName('songs').length;
@@ -11,8 +10,6 @@ for (let i=0; i<my_list_length;i++){
     let go_left = document.getElementsByClassName('bi-chevron-left')[i];
     let go_right = document.getElementsByClassName('bi-chevron-right')[i];
     let my_list = document.getElementsByClassName('songs')[i];
-
-
 
     go_left.addEventListener('click', ()=>{
         my_list.scrollLeft -= 730;
@@ -101,20 +98,36 @@ for(var i=0;i<20;i++){
 }
 
 
+let tar_queue=document.getElementsByClassName('queue')[0];
+function add_track_in_queue(song_id){
+        let songname = api.find((e) => {
+        return e.id==song_id;
+    })
+    document.getElementsByClassName('queue')[0].innerHTML+=`<li class="song">
+        <div class="image_play">
+        <img src="${songname.artworkUrl}" alt="">
+        <img class="play_icon" id="${songname.id}" src="../images/play.svg" alt="">
+    </div>
+    <div>
+        <h4>${songname.title}</h4>
+    </div>
+    <i class="bi bi-plus-circle"></i>
+    </li>`
+}
 
-// let queuedata = songs;
 
-// let tar_queue=document.getElementsByClassName('queue')[0];
 
-// for(let i=0;i<queuedata.length;i++){
-    
-//         tar_queue.innerHTML+=`<li class="song" id="song${queuedata[i].id}">
+// for(let i=0;i<api.length;i++){
+//     let songname = api.find((e) => {
+//         return e.id==song_id;
+//     })
+//         tar_queue.innerHTML+=`<li class="song">
 //         <div class="image_play">
-//             <img src="${queuedata[i].song_image}" alt="">
-//             <img class="play_icon" id="${songs[i].id}" src="../images/play.svg" alt="">
+//             <img src="${api[i].artworkUrl}" alt="">
+//             <img class="play_icon" id="${api[i].id}" src="../images/play.svg" alt="">
 //         </div>
 //         <div>
-//             ${queuedata[i].song_name}
+//             <h4>${api[i].title}</h4>
 //         </div>
 //         <i class="bi bi-plus-circle"></i>
 //     </li>`
@@ -206,18 +219,8 @@ async function playplaylist(array) {
         item.addEventListener('click', async (ele) => {
             
             let song_id = ele.target.id;
-            // console.log(ele.target.id)
-        
-           
-            
             playsong(song_id);
-            // console.log(music.src);
-
-            
-
-            // allBackground();
-            // let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
-            // queue_position.style.background = "rgba(230, 230, 230, 0.9)";
+            add_track_in_queue(song_id);
             allPlayButton();
             item.src=`../images/pause.svg`
         })
@@ -231,12 +234,7 @@ function allPlayButton(){
         ele.src=`../images/play.svg`
     })
 }
-// function allBackground(){
-//     let myArray = Array.from(document.getElementsByClassName('queue')[0].getElementsByClassName('song'));
-//     myArray.forEach((ele) =>{
-//         ele.style.background = "rgba(230, 230, 230, 0.0)";
-//     })
-// }
+
 
 let current_time = document.getElementById('current_time');
 let end_time = document.getElementById('end_time');
@@ -287,14 +285,12 @@ music.addEventListener('timeupdate', async ()=>{
     }
     // for auto play
 
-    // console.log(played_length.value);
     bar.style.width= `${played_length.value}%`
 
 });
 
 played_length.addEventListener("input", ()=>{
     music.currentTime =  played_length.value * music.duration / 100;
-    // console.log(music.currentTime);
 })
 
 
@@ -311,8 +307,6 @@ play_back.addEventListener('click', () => {
     }
     let song_id = api[current_song_index].id;
         playsong(song_id);
-            // allPlayButton();
-            // item.src=`../images/pause.svg`
 })
 
 play_next.onclick = function(){playNextSong()}
@@ -326,45 +320,9 @@ function playNextSong(){
     let song_id = api[current_song_index].id;
     
     playsong(song_id);
-    // console.log(music.src);
 
-
-
-    // allBackground();
-    // let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
-    // queue_position.style.background = "rgba(230, 230, 230, 0.9)";
-    // allPlayButton();
-    // item.src=`../images/pause.svg`
 }
 
-// play_next.addEventListener('click', () => {
-//     current_song_index++;
-//     if(current_song_index>songs.length){
-//         current_song_index = 1;
-//     }
-//     let song_id = current_song_index;
-//     console.log("next"+song_id);
-//         music.src=`../songs/song${song_id}.mp3`;
-//         current_image.src= `../images/song${song_id}.jpg`;
-//         let songname = songs.find((e) => {
-//             return e.id==song_id;
-//         })
-
-//         current_song.innerHTML=songname.song_name; 
-
-//         music.play();
-//         music_play_icon.classList.remove('bi-play-fill');
-//         music_play_icon.classList.add('bi-pause-fill');
-//         // console.log(music.src);
-
-//         // played_length.value=0;
-
-//         allBackground();
-//         let queue_position = document.getElementsByClassName('queue')[0].getElementsByClassName('song')[song_id-1]; 
-//         queue_position.style.background = "rgba(230, 230, 230, 0.9)";
-//         allPlayButton();
-//         // item.src=`../images/pause.svg`
-// })
 
 let queue_icon = document.getElementsByClassName("bi-music-note-list")[0];
 
@@ -386,12 +344,9 @@ let like_icon =Array.from(document.getElementsByClassName('like_icon'));
 
 
 
-// let hi = new Audio('../songs/song5.mp3');
-// hi.play();
-
 like_icon.forEach( (item,index) => {
     item.addEventListener('click',()=>{
-        // console.log(item.className)
+        
         let effect = document.getElementsByClassName('bi-hearts')[index];
         if(item.className == 'like_icon bi bi-heart'){
             item.classList.remove('bi-heart');
