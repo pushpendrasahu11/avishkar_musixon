@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <!-- ../ to go one folder back -->
+    <title>user page</title>
+</head>
+<body>
+    <div class="main">
+        <section class="head">
+            <!-- <ul id="navbar"> 
+                <div id="navleft" style="display: flex;position: absolute; left: 2px;">
+                    <a href="#"><img id="logo" src="#" alt="" class="logo"></a>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">My Playlist</a></li>
+                </div>
+                <div class="sbar">
+                    <input type="search" placeholder="Search">
+                    <li><button>Search</button></li>
+                </div> 
+                <div id="navright" style="display: flex;position: absolute; right: 2px;">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </div>
+            </ul>    -->
+            <h2>MUSIXON</h2>
+        </section>
+        
+        <section class="container">
+            <div class="left_panel">
+                <ul class="user_links">
+                    <li><a href=""><i class="bi bi-music-note"></i><h4>My Playlist</h4></a></li>
+                    <li><a href=""><i class="bi bi-heart"></i><h4>Liked Songs</h4></a></li>
+                    <li><a href=""><i class="bi bi-earbuds"></i><h4>Liked Artist</h4></a></li>
+                    <li><a href=""><i class="bi bi-clock-history"></i><h4>History</h4></a></li>
+                    <li><a href=""><i class="bi bi-gear"></i><h4>Settings</h4></a></li>
+                    <li><a href=""><i class="bi bi-power"></i><h4>Log out</h4></a></li>
+                </ul>
+            </div>
+            <div>
+            <div class="top">
+                <img src="../images/artist1.jpg" alt="">
+                <h2>Pushpendra Sahu</h2>
+                <!-- <button id="play">Play</button> -->
+                <!-- <button id="add"><i class="bi bi-plus-circle" style="margin-right: 4px ;"></i>Add to Favorites</button> -->
+            </div>
+            <div class="content">     
+                    <div  class="content_head">
+                        <h3>Liked Songs</h3>    
+                    </div>
+                    <!-- <li class="song">
+                        <div class="image_play">
+                        <img src="../images/song1.jpg" alt="">
+                        <img class="play_icon" id="${songname.id}" src="../images/play.svg" alt="">
+                    </div>
+                    <div>
+                        <h4>${songname.title}</h4>
+                    </div>
+                    <i class="bi bi-plus-circle"></i>
+                    </li> -->
+                    <!-- <li class="song">
+                            
+                            <img src="../images/song1.jpg" alt="">    
+                            <h4>Deva Deva , and the onlt one Arijit Singh, Jonita Gandhi</h4>
+                            <h5>Pritam, Arijit Singh,me and my fellow  Jonita Gandhi, Amitabh Bhattacha</h5>
+                            <i class="bi bi-heart-fill" ></i>
+                            <span style="width: 3%;">05:23</span>
+
+                        
+                    </li> -->
+
+            </div>
+        </div>
+        </section>
+        <section class="queue">
+            <div class="queue_head">
+                <h3>Queue</h3>
+                
+            </div> 
+        </section>
+        <section class="music_player">
+
+            <div class="progress_bar">
+                <input type="range" name="" id="played_length" min="0" max="100" value="0">
+                <div id="bar">
+                    <div id="point"></div>
+                </div>
+            </div>        
+            
+            <div class="song_detail" >
+                <img id="current_image" src="../images/song1.jpg" alt="">
+                <div id="current_song">
+                    <h4>Deva Deva (From "Brahmastra")</h4>
+                    <h5>Pritam, Arijit Singh, Jonita Gandhi, Amitabh Bhattacharya, T Series</h5>
+                </div>
+            </div>
+            
+            <div class="icons">
+                <i class="bi bi-music-note-list"></i>
+                <i class="bi play bi-skip-start-fill" id="play_back"></i>
+                <i id="music_play_icon" class="bi play bi-play-fill"></i>
+                <i class="bi play bi-skip-end-fill" id="play_next"></i>
+                <i class="bi bi-repeat"></i>
+                <i class="bi bi-repeat-1"></i>
+                <i class="bi bi-shuffle"></i> 
+            </div>
+
+            <div class="music_time" style="display:flex;">
+                <div id="current_time">00:00</div>
+                <span>/</span>
+                <div id="end_time">05:41</div>
+            </div>
+            
+            <!-- <div class="volume" >
+                <i class="bi bi-volume-up-fill" id="volume_icon"></i>
+                <input type="range" name="" id="current_volume" value="60" min="0" max="100" value="0">
+                <div id="bar">
+                    <div id="point"></div>
+                </div>
+            </div> -->
+
+            <!-- <i class="bi bi-volume-mute-fill"></i>
+            <i class="bi bi-volume-up-fill"></i>
+            <i class="bi bi-volume-down-fill"></i> -->
+        </section>
+    </div>
+</body>
+<script src="../js/axios.min.js"></script>
+<script type="module" src="../js/main.js"></script>
+<script type="module" src="../js/user.js"></script>
+</html>
