@@ -1,0 +1,489 @@
+{
+    "ok": true,
+    "result": {
+      "songs": [
+        {
+          "id": "v2eSPNas4sQ",
+          "name": "Arijit Singh, Neha Kakkar, Rochak - Tu Hi Yaar Mera (From \"Pati Patni Aur Woh\")",
+          "title": "Tu Hi Yaar Mera (From \"Pati Patni Aur Woh\")",
+          "artists": [
+            {
+              "artist_id": "UCDxKh1gFWeYsqePvgVzmPoQ",
+              "name": "Arijit Singh"
+            },
+            {
+              "artist_id": "UCsmm-jjSLILh12mZ2aR6Qrg",
+              "name": "Neha Kakkar"
+            },
+            {
+              "artist_id": "UCtNzg1qT4Q_TWVhZenAMw9w",
+              "name": "Rochak"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_MMuviBMT4Nj",
+            "name": "Tu Hi Yaar Mera (From \"Pati Patni Aur Woh\")"
+          },
+          "duration": 200,
+          "thumbnail": "https://lh3.googleusercontent.com/X8Ya1ozhdNHweZ1iw1Fv2gSEwawvDCAsHPYG6gaYM1fLR6GZLDfAkiNI_k5zcCAQG1dGHDsGN-adlEI_=w120-h120-l90-rj"
+        },
+        {
+          "id": "nLTZ-T3f7sw",
+          "name": "Numan Zaka - Tu Hi Yaar Mera LOFI",
+          "title": "Tu Hi Yaar Mera LOFI",
+          "artists": [
+            {
+              "artist_id": "UCsRZAE62qtTYtyIJqMQpcyw",
+              "name": "Numan Zaka"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_ZMCgIOnLNgv",
+            "name": "Tu Hi Yaar Mera LOFI"
+          },
+          "duration": 195,
+          "thumbnail": "https://lh3.googleusercontent.com/VcetqbjSnj_p5e8KAGQUCy4rkhENAIjC6pnlN4Q6SlsJr8TRr-EMqK30PdjsRJN0I46Wlr1n0Cyv-QSM=w120-h120-l90-rj"
+        },
+        {
+          "id": "j0TybAQpgzY",
+          "name": "Vanitaa Pande - Tu Hi Yaar Mera",
+          "title": "Tu Hi Yaar Mera",
+          "artists": [
+            {
+              "artist_id": "UCuep-QfnqBrE0LCKtO80L7Q",
+              "name": "Vanitaa Pande"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_cgVfON38Uea",
+            "name": "Tu Hi Yaar Mera"
+          },
+          "duration": 191,
+          "thumbnail": "https://lh3.googleusercontent.com/gbPaNFSwYaRYiiUMZxgnAjDzwn6lJ61PtBq8AYuEa5icM-utISDjqJllGz9yUmp0_01lWC7cae37hrKT=w120-h120-l90-rj"
+        },
+        {
+          "id": "Q_FKqShcFS8",
+          "name": "Maninder Buttar, Zara Khan - Sakhiyan2.0",
+          "title": "Sakhiyan2.0",
+          "artists": [
+            {
+              "artist_id": null,
+              "name": "Maninder Buttar, Zara Khan"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_qo8aNblyNSd",
+            "name": "Bellbottom"
+          },
+          "duration": 178,
+          "thumbnail": "https://lh3.googleusercontent.com/7ZEmBR7JcslFn5Qr9wrXO97QrPZdra9PuLOafW0AWB3aHsF79r_2vB4zDnqCkyyscxxepV9MLk-mNQfE=w120-h120-l90-rj"
+        },
+        {
+          "id": "__houzo-VQM",
+          "name": "Yashraj - Tu Hi Yaar Mera Tu Hi Pyar Mera",
+          "title": "Tu Hi Yaar Mera Tu Hi Pyar Mera",
+          "artists": [
+            {
+              "artist_id": "UCY8WCI8EXEzi-q-gB9Yge-Q",
+              "name": "Yashraj"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_aR8iXY9mb1Z",
+            "name": "Yaar Mera"
+          },
+          "duration": 268,
+          "thumbnail": "https://lh3.googleusercontent.com/eJUXS5pnD2tGs29bdJ37PGQns8G1arWZeQAO_gv1lm9WZR6qT5WA8GoUW3ytp9oRTXqIbPNaLodUycQi=w120-h120-l90-rj"
+        },
+        {
+          "id": "U13aOFC9Oic",
+          "name": "Tanishk Bagchi, Yasser Desai, Asees Kaur - Makhna",
+          "title": "Makhna",
+          "artists": [
+            {
+              "artist_id": "UCqzQ51ZqgxPvIGGAVUdcuVA",
+              "name": "Tanishk Bagchi"
+            },
+            {
+              "artist_id": "UCUfq1gkBWMPKfC_DmOj8QJQ",
+              "name": "Yasser Desai"
+            },
+            {
+              "artist_id": "UCvfE4xZDghK_FlDVSgPTKyw",
+              "name": "Asees Kaur"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_yrTBsWpZc6J",
+            "name": "Makhna (From \"Drive\")"
+          },
+          "duration": 183,
+          "thumbnail": "https://lh3.googleusercontent.com/PhPhKD8DdRGa_07w2-NqvVXvLoH-O8lmAaoNEwTjoEsJqAPjVJGK8-8jZYXyH7EodYwNXAe1BKcOOFfi=w120-h120-l90-rj"
+        },
+        {
+          "id": "-DQ78gRGvA8",
+          "name": "Maninder Buttar - Sakhiyaan",
+          "title": "Sakhiyaan",
+          "artists": [
+            {
+              "artist_id": "UCVx55niODDnW-RiQPDnCwOA",
+              "name": "Maninder Buttar"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_sDEgs3XZQWp",
+            "name": "Sakhiyaan"
+          },
+          "duration": 180,
+          "thumbnail": "https://lh3.googleusercontent.com/xPIMRy2kSfrBlj-eVFBY3Kv8PLQWpitn4US-0FTSHowQImMZBgLH8ROqgLvwS0ESBZQpCrOrrzTy3tLQdA=w120-h120-l90-rj"
+        },
+        {
+          "id": "yDCvidEATYM",
+          "name": "Niti Dhiman - Tu Hi Yaar Mera (feat. Vishal)",
+          "title": "Tu Hi Yaar Mera (feat. Vishal)",
+          "artists": [
+            {
+              "artist_id": "UC3bpGcivWWGDiQizHDvlBtA",
+              "name": "Niti Dhiman"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_KwcNESCEuwc",
+            "name": "Tu Hi Yaar Mera"
+          },
+          "duration": 169,
+          "thumbnail": "https://lh3.googleusercontent.com/WqZH0QSxjdvM5Cd23EixWiBqtAziUrecMKCkkhK-OvgoYNHsYkkB9yXrCkUfdaeJOVR5Hd3AjKLYuYM=w120-h120-l90-rj"
+        },
+        {
+          "id": "l43TZeA7jNs",
+          "name": "Sachet Tandon, Parampara Tandon, Sachin-Jigar - Jug Jug Jeeve",
+          "title": "Jug Jug Jeeve",
+          "artists": [
+            {
+              "artist_id": "UCwVaZvqWinr1NWZopxGjRQQ",
+              "name": "Sachet Tandon"
+            },
+            {
+              "artist_id": "UCWTJRAiuMAe57ioQg6QlJ_g",
+              "name": "Parampara Tandon"
+            },
+            {
+              "artist_id": "UCcuXjaACiyViK8QTuztjR6A",
+              "name": "Sachin-Jigar"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_EGgRdPTgp61",
+            "name": "Shiddat"
+          },
+          "duration": 200,
+          "thumbnail": "https://lh3.googleusercontent.com/8v2WtDU34dify0mjvAPsQR0xRDi4IBIoMq1KC6_wnGlFqJ1bxsGJkxggmITmytXpa96pIljVEaPe_86Y8w=w120-h120-l90-rj"
+        },
+        {
+          "id": "lEpin05K3VQ",
+          "name": "Rito Riba, Rajat Nagpal, Rana Sotal - Ik Tu Hi (No-Mabe)",
+          "title": "Ik Tu Hi (No-Mabe)",
+          "artists": [
+            {
+              "artist_id": "UCKPpAeo18-fp7zuVNRdrf4w",
+              "name": "Rito Riba"
+            },
+            {
+              "artist_id": "UCEgBdIoexPEj2vA2PkoCKUA",
+              "name": "Rajat Nagpal"
+            },
+            {
+              "artist_id": "UCX0mflHZX8FhVHxIGtuxibw",
+              "name": "Rana Sotal"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_6L2uKT2bgcx",
+            "name": "Ik Tu Hi (No-Mabe)"
+          },
+          "duration": 197,
+          "thumbnail": "https://lh3.googleusercontent.com/p-L1_Xw3FD_cHw00oue_Uc22yecUdZdeaSckZhoLmLySRiMWxrqzSshWrPtIwLMNiD2GD9kw69lP1uXh=w120-h120-l90-rj"
+        },
+        {
+          "id": "uu5bLjyKq3E",
+          "name": "Sweekruti Panda - Tu Hi Yaar Mera (Unplugged)",
+          "title": "Tu Hi Yaar Mera (Unplugged)",
+          "artists": [
+            {
+              "artist_id": "UCU7vgPJHVc0CCzIKhGysQfQ",
+              "name": "Sweekruti Panda"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_VttYqsc170w",
+            "name": "Tu Hi Yaar Mera (Unplugged)"
+          },
+          "duration": 48,
+          "thumbnail": "https://lh3.googleusercontent.com/enRHzLmMnyxahSckNaiTEp4cT-Se3acyDt1JtxliNPWptFvDFDvSB0s3QdydyBjfA77igpgdk2B0pr6l=w120-h120-l90-rj"
+        },
+        {
+          "id": "JJ4LYlcAjDY",
+          "name": "Jvio - Tera Yaar Hoon Main and Tu Hi Yaar Mera (feat. B Aliana)",
+          "title": "Tera Yaar Hoon Main and Tu Hi Yaar Mera (feat. B Aliana)",
+          "artists": [
+            {
+              "artist_id": "UCqY5sLrHFxva9DGiTuZnO7Q",
+              "name": "Jvio"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_MaKoeJZGb7n",
+            "name": "Tera Yaar Hoon Main and Tu Hi Yaar Mera"
+          },
+          "duration": 357,
+          "thumbnail": "https://lh3.googleusercontent.com/OX0Bk2OT1qDyd73WjiwEYn1OoyWr5p_pdPRJiuyLd-C0nfzwoPp6tOpAgW2LqvstGyg-crLVJNWaVcAG=w120-h120-l90-rj"
+        },
+        {
+          "id": "9Cp-hNvSWZs",
+          "name": "Sachet-Parampara, Sachet Tandon - Maiyya Mainu (From \"Jersey\")",
+          "title": "Maiyya Mainu (From \"Jersey\")",
+          "artists": [
+            {
+              "artist_id": "UCWTJRAiuMAe57ioQg6QlJ_g",
+              "name": "Sachet-Parampara"
+            },
+            {
+              "artist_id": "UCwVaZvqWinr1NWZopxGjRQQ",
+              "name": "Sachet Tandon"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_gjvcX4UCA2j",
+            "name": "Maiyya Mainu (From \"Jersey\")"
+          },
+          "duration": 232,
+          "thumbnail": "https://lh3.googleusercontent.com/cviGDx-uxgAMnv-KZOjl6QpIsBu5KteBtLBWr3KpXNkUK_4d92bQVtLyXLpOdwTkTuBX0KDajuKn76zn=w120-h120-l90-rj"
+        },
+        {
+          "id": "Jkj8c3kvpBo",
+          "name": "Arijit Singh - Tera Yaar Hoon Main",
+          "title": "Tera Yaar Hoon Main",
+          "artists": [
+            {
+              "artist_id": "UCDxKh1gFWeYsqePvgVzmPoQ",
+              "name": "Arijit Singh"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_nlB1flmuKAK",
+            "name": "Sonu Ke Titu Ki Sweety"
+          },
+          "duration": 264,
+          "thumbnail": "https://lh3.googleusercontent.com/uZw3aYXEykEwzGhXQu67qIJQE49Qd71k6jPlKsc4-SOlWwAjDsLsFQIVAJjP8Iwo-olV6QioCpaVCztSXg=w120-h120-l90-rj"
+        },
+        {
+          "id": "SsQUXpdwm-0",
+          "name": "Darshan Raval - Rabba Mehar Kari",
+          "title": "Rabba Mehar Kari",
+          "artists": [
+            {
+              "artist_id": "UCNMewQFJlBeyXpWwo2dezSw",
+              "name": "Darshan Raval"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_PHMYTyPEnbs",
+            "name": "Rabba Mehar Kari"
+          },
+          "duration": 209,
+          "thumbnail": "https://lh3.googleusercontent.com/tmrLySbZhsFBju90l84asRRxS0qXKvor-52z9nkg0ue42sZipcV10fla4LNYmA7Cap9RD0aKdTk3bT8=w120-h120-l90-rj"
+        },
+        {
+          "id": "CutJAOINPIY",
+          "name": "Arijit Singh, Neeti Mohan - Mere Yaaraa",
+          "title": "Mere Yaaraa",
+          "artists": [
+            {
+              "artist_id": "UCDxKh1gFWeYsqePvgVzmPoQ",
+              "name": "Arijit Singh"
+            },
+            {
+              "artist_id": "UCk4vGGryYSsbzlZ_WKJWH4A",
+              "name": "Neeti Mohan"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_xGC47SOiBSB",
+            "name": "Sooryavanshi"
+          },
+          "duration": 286,
+          "thumbnail": "https://lh3.googleusercontent.com/wn2G_S0tOFv85QyWkYjrHjdXtkpumVpr2HAWjDzG2SwG49ehAAq_QUuuoWDfXRiJckfpGeYmgUQTAnVmMw=w120-h120-l90-rj"
+        },
+        {
+          "id": "zJ0KO4Kec3w",
+          "name": "Pritam - Bulleya (From \"Ae Dil Hai Mushkil\")",
+          "title": "Bulleya (From \"Ae Dil Hai Mushkil\")",
+          "artists": [
+            {
+              "artist_id": "UCCTN01plFzn4npREHKT2_9Q",
+              "name": "Pritam"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_W6oLj5XaYVZ",
+            "name": "Bulleya (From \"Ae Dil Hai Mushkil\")"
+          },
+          "duration": 349,
+          "thumbnail": "https://lh3.googleusercontent.com/8qZlps2iD-0yNE8MAwO0KwYZvRaBnKJecbYC6cJZIzsBIEg8O20l7yMADKhi9YDKhIT2TMGgc7DMB5gHCg=w120-h120-l90-rj"
+        },
+        {
+          "id": "n4XXqg3gaAw",
+          "name": "VMPG Volvet Music - Tu Hi Yaar Mera (Cover) (feat. Aishika Mishra)",
+          "title": "Tu Hi Yaar Mera (Cover) (feat. Aishika Mishra)",
+          "artists": [
+            {
+              "artist_id": "UCsoIf4xU6Mn0Qvt1ejb0jsQ",
+              "name": "VMPG Volvet Music"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_qobK0mgIcvV",
+            "name": "Tu Hi Yaar Mera (Cover)"
+          },
+          "duration": 146,
+          "thumbnail": "https://lh3.googleusercontent.com/nX-KGqcCG4YyWtYH7hpn-gHVHSnwj1wb6nRyodHJiHpVefhAdeP4YV7yoTFohEQrCcL2RwNNn13z0TW3mw=w120-h120-l90-rj"
+        },
+        {
+          "id": "RpYGVrdhn7c",
+          "name": "Sadaqat Ali Qalandri - Ucha Wehra Sakhiyan Da",
+          "title": "Ucha Wehra Sakhiyan Da",
+          "artists": [
+            {
+              "artist_id": "UCQlhfE39Rm4TNiVsK8FVVYg",
+              "name": "Sadaqat Ali Qalandri"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_EZOKawEMTZu",
+            "name": "Ucha Wehra Sakhiyan Da"
+          },
+          "duration": 254,
+          "thumbnail": "https://lh3.googleusercontent.com/meziY7r1ootxohQUFMjCDSpUn57Cq5tCMPUoDFf5jPtBe-dOCTTrVlVsRe3srP7_ajKlMKhe_6jqFgs=w120-h120-l90-rj"
+        },
+        {
+          "id": "bZ7jJQ3ISvc",
+          "name": "Shekh Tabrej - Tu Hi Mera",
+          "title": "Tu Hi Mera",
+          "artists": [
+            {
+              "artist_id": "UCjVABG8IaoBlWXgoUnwK3-w",
+              "name": "Shekh Tabrej"
+            }
+          ],
+          "album": {
+            "album_id": "MPREb_ByvEeYeUcqR",
+            "name": "My Love In All World"
+          },
+          "duration": 108,
+          "thumbnail": "https://lh3.googleusercontent.com/BPwNCNinK0QzJK8wAvwB4E5pS7lPVLx6esmfVKf_l_ScLBcStyRfdknTPFC_nV77qXbFiaEwp6ZS0KSe=w120-h120-l90-rj"
+        }
+      ],
+      "videos": [
+        {
+          "id": "BTRPBiE_1lA",
+          "title": "Tu Hi Yaar Mera (From \"Pati Patni Aur Woh\")",
+          "duration": 197
+        },
+        {
+          "id": "xLUCo7lhnxE",
+          "title": "Tu Hi Yaar Mera (From \"Pati Patni Aur Woh\")",
+          "duration": 219
+        },
+        {
+          "id": "3b-VmmPmkZw",
+          "title": "Tu Hi Yaar Mera (Lyrics) ",
+          "duration": 166
+        },
+        {
+          "id": "_ho2Sta5RVE",
+          "title": "Tu Hi Yaar Mera full song",
+          "duration": 236
+        },
+        {
+          "id": "d1UVVfB-AD8",
+          "title": "Tu Hi Yaar Mera 8D Audio Song - Pati Patni Aur Woh (HQ)🎧",
+          "duration": 205
+        },
+        {
+          "id": "wwmszK6FvYQ",
+          "title": "Ek Tu Hi Yaar Mera ",
+          "duration": 244
+        },
+        {
+          "id": "KUK6xABU4I8",
+          "title": "Tu hi yaar mera ",
+          "duration": 120
+        },
+        {
+          "id": "4YZ6Aqg5gBw",
+          "title": "Tu Hi Yaar Mera - slowed & reverb",
+          "duration": 224
+        },
+        {
+          "id": "XV3yrog-rPI",
+          "title": "(Lyrics): Tu Hi Yaar Mera - Arijit Singh & Neha Kakkar ",
+          "duration": 202
+        },
+        {
+          "id": "3VO6fzLKSUM",
+          "title": "Tu Hi Yaar Mera [Slowed+Reverb]Lyrics- Arijit singh ",
+          "duration": 224
+        },
+        {
+          "id": "ToqZnE3JJKk",
+          "title": "Tu hi yaar mera Dance ",
+          "duration": 225
+        },
+        {
+          "id": "gg6SQ9Goiho",
+          "title": "Tu Hi Yaar Mera - Pati Patni Aur Woh ",
+          "duration": 190
+        },
+        {
+          "id": "hfnWVEDr86o",
+          "title": "Tu Hi Yaar Mera Dance Video ",
+          "duration": 55
+        },
+        {
+          "id": "HgK9Ncnb9h4",
+          "title": "Tu Hi Yaar Mera ",
+          "duration": 146
+        },
+        {
+          "id": "nyroRtkcB8s",
+          "title": "Tu hi yaar mera [ Slowed + reverb ] - Arijit Singh",
+          "duration": 240
+        },
+        {
+          "id": "B3MYpu9KDJE",
+          "title": "EK TU HI YAAR MERA ",
+          "duration": 250
+        },
+        {
+          "id": "fsqAzpyo9SM",
+          "title": "Vmin - Tu Hi Yaar Mera {FMV} ",
+          "duration": 69
+        },
+        {
+          "id": "NEsX4I4r33E",
+          "title": "Arijit Singh Ik tu hi yaar mera Mujhko kya duniya se lena full song lyrics neha kakkar",
+          "duration": 258
+        },
+        {
+          "id": "qEWEqXp0D3s",
+          "title": "Tu Hi Yaar Mera [8D AUDIO] Arijit Singh ",
+          "duration": 204
+        },
+        {
+          "id": "7HI8QoqqLjM",
+          "title": "Taekook 😍",
+          "duration": 189
+        }
+      ]
+    }
+  }

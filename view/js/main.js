@@ -1,4 +1,7 @@
 import songapi from './songapi.json' assert {type: 'json'};
+import hothitshindi from './json/hothitshindi.json' assert {type: 'json'};
+import topsongindia from './json/topsongindia.json' assert {type: 'json'};
+import topsongglobal from './json/topsongglobal.json' assert {type: 'json'};
 
 // imprting json files
 
@@ -12,18 +15,21 @@ for (let i=0; i<my_list_length;i++){
     let my_list = document.getElementsByClassName('songs')[i];
 
     go_left.addEventListener('click', ()=>{
-        my_list.scrollLeft -= 730;
+        my_list.scrollLeft -= 660;
     })
 
     go_right.addEventListener('click', ()=>{
-        my_list.scrollLeft += 730;
+        my_list.scrollLeft += 660;
     })
 }
 
 
 // [...] to make clone
 let api = [...songapi]
-
+let hotHitsHindi = [...hothitshindi];
+let topSongIndia = [...topsongindia];
+let topSongGlobal = [...topsongglobal];
+console.log(hotHitsHindi);
 console.log(api);
 
 for(let i=0;i<api.length;i++){
@@ -36,17 +42,22 @@ console.log(api);
 
 let tar1 = document.getElementById('list01').getElementsByClassName('songs')[0];
 
-for(let i=0;i<20;i++){
+for(let i=0;i<40;i++){
+    let trackArtists = '';
+    hotHitsHindi[i].track.artists.map((obj)=>{
+        trackArtists += obj.name + ', ';
+    });
     tar1.innerHTML+=`<li class="song" ">
     <div class="image_play">
-        <img src="${api[i].artworkUrl}" alt="">
-        <img class="play_icon" id="${api[i].id}" src="../images/play.svg" alt="">
+        <img src="${hotHitsHindi[i].track.album.images[0].url}" alt="">
+        <img class="play_icon" id="${hotHitsHindi[i].track.id}" src="../images/play.svg" alt="">
         <i class="like_icon bi bi-heart"></i>
         <i class="bi bi-hearts"></i>
         <i class="bi bi-plus-circle"></i>
     </div>
     <div>
-        <h4>${api[i].title}</h4>
+        <h5><b> ${hotHitsHindi[i].track.name} </b></h5>
+        <h5>${trackArtists.slice(0,-2)}</h5>
     </div>
 </li>`
 }
@@ -56,14 +67,14 @@ let tar2 = document.getElementById('list02').getElementsByClassName('songs')[0];
 for(var i=20;i>=0;i--){   
     tar2.innerHTML+=`<li class="song" ">
     <div class="image_play">
-        <img src="${api[i].artworkUrl}" alt="">
-        <img class="play_icon" id="${api[i].id}" src="../images/play.svg" alt="">
+        <img src="${topSongIndia[i].track.album.images[0].url}" alt="">
+        <img class="play_icon" id="${topSongIndia[i].track.id}" src="../images/play.svg" alt="">
         <i class="like_icon bi bi-heart"></i>
         <i class="bi bi-hearts"></i>
         <i class="bi bi-plus-circle"></i>
     </div>
     <div>
-        <h4>${api[i].title}</h4>
+        <h5>${topSongIndia[i].track.name}</h5>
     </div>
 </li>`
 }
@@ -92,7 +103,7 @@ for(var i=0;i<20;i++){
         <i class="bi bi-plus-circle"></i>
     </div>
     <div>
-        <h4>${sapi[i].title}</h4>
+        <h5>${sapi[i].title}</h5>
     </div>
 </li>`
 }
@@ -149,7 +160,7 @@ function add_track_in_queue(song_id){
 
 // playing song
 
-const music = new Audio('../songs/song1.mp3');
+const music = new Audio();
 let current_song_index=0;
 
 let music_play_icon = document.getElementById('music_play_icon');
@@ -172,7 +183,7 @@ async function myfun(id){
         url: 'https://soundcloud-scraper.p.rapidapi.com/v1/track/metadata',
         params: {track: id},
         headers: {
-          'X-RapidAPI-Key': 'a904dd1c87msh6787bd34070fa70p170e38jsnff2202d67e0c',
+          'X-RapidAPI-Key': '4a49e5c414msh16c08ef3c3094c1p103c2djsne2ac2f815c89',
           'X-RapidAPI-Host': 'soundcloud-scraper.p.rapidapi.com'
         }
       };
