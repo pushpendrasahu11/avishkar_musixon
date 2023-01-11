@@ -1,13 +1,4 @@
 import { allDetail} from "./mainData.js";
-import hothitshindi from './json/hothitshindi.json' assert {type: 'json'};
-let hotHitsHindi = [...hothitshindi];
-
-// let currentTrackDetail={
-//     Image:document.getElementById('current_image'),
-//     Title:document.getElementById('currentTitle.innerHTML').innerHTML,
-//     Id:'', 
-//     Artist: document.getElementById('currentArtists.innerHTMLs').innerHTML
-// };
 
 var currentImage = document.getElementById('current_image');
 var currentTitle = document.getElementById('currentTitle');
@@ -17,10 +8,7 @@ var currentArtists = document.getElementById('currentArtists');
 var duration;
 var currentTrack='';
 var isPlaylistAdded =0;
-// console.log(currentImage.src);
-// console.log('player')
 
-// var music = new Audio();
 let mainPlayIcon = document.getElementById('music_play_icon');
 
 let current_time = document.getElementById('current_time');
@@ -55,7 +43,6 @@ export async function playTrack(trackName,music){
 
 
 export async function updateTime(music){
-    console.log('aa gaya')
 music.addEventListener('timeupdate', async ()=>{
 
     let musicCurrentTime = music.currentTime;
@@ -84,8 +71,7 @@ music.addEventListener('timeupdate', async ()=>{
         playedLength.value = currentLength;
     }
     bar.style.width= `${playedLength.value}%`
-    // console.log("ct is "+musicCurrentTime)
-    // console.log("et is "+musicEndTime)
+    
     if( parseInt(musicCurrentTime) == musicEndTime){
         console.log("song enddd")
         playNextSong(music);
