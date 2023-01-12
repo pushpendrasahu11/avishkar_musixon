@@ -10,6 +10,7 @@ var currentTrack='';
 var isPlaylistAdded =0;
 
 let mainPlayIcon = document.getElementById('music_play_icon');
+let volumeIcon = document.getElementById('volume_icon');
 
 let current_time = document.getElementById('current_time');
 let end_time = document.getElementById('end_time');
@@ -17,6 +18,8 @@ let end_time = document.getElementById('end_time');
 let playedLength = document.getElementById('played_length');
 let  bar= document.getElementById('bar');
 
+let currentVolume = document.getElementById('current_volume');
+let volumeBar = document.getElementById('vol_bar');
 
 export async function playTrack(trackName,music){
     
@@ -89,6 +92,16 @@ playedLength.addEventListener("input", () => {
     console.log(music.currentTime);
 })
 
+
+
+
+// function allPlayButton() {
+//     let myArray = Array.from(document.getElementsByClassName('play_icon'));
+//     myArray.forEach((ele) => {
+//         ele.src = `../images/play.svg`
+//     })
+// }
+
 var queueArray=[];
 
 export async function addTrackInQueue(trackName){
@@ -101,11 +114,14 @@ export async function addTrackInQueue(trackName){
     console.log(isPresent+" added in queue")
     console.log(queueArray);
     queueArray.push(trackName);
+
+
+
     let queue=document.getElementsByClassName('queue')[0];
     queue.innerHTML+=`<li >
         <div class="image_play">
         <img src=${currentImage.src} alt="">
-        <img class="play_icon" id=${currentName} src="../images/play.svg" alt="">
+        <img class="queue_play_icon" id="${currentTitle.innerHTML}" src="../images/play.svg" alt="">
     </div>
     <div>
         <h4>${currentTitle.innerHTML}</h4>
@@ -135,6 +151,27 @@ export async function addTrackInQueue(trackName){
     //     })
     // }
 
+    let song_array = Array.from(document.getElementsByClassName('queue_play_icon'));
+    playplaylist(song_array);
+    console.log(song_array);
+
+
+    function playplaylist(array) {
+        array.forEach((item) => {
+            item.addEventListener('click', (ele) => {
+                console.log("id print here "+ ele.target.id);
+                playTrack(ele.target.id,currentTrack);
+                
+                song_array.forEach((ele) => {
+                    ele.src = `../images/play.svg`
+                })
+                
+                item.src = `../images/pause.svg`
+            })
+        })
+
+    }
+
     }
 }
 
@@ -160,4 +197,26 @@ export async function playNextSong(music){
     playTrack(queueArray[index+1],music);
 
 }
+
+currentVolume.addEventListener("input", () => {
+    if(currentVolume.value==0){
+        volumeIcon.classList.remove('bi-volume-up-fill');
+        volumeIcon.classList.remove('bi-volume-down-fill');
+        volumeIcon.classList.add('bi-volume-off-fill');
+    }
+    else if(currentVolume.value>0 && currentVolume.value<50){
+        volumeIcon.classList.remove('bi-volume-up-fill');
+        volumeIcon.classList.remove('bi-volume-off-fill');
+        volumeIcon.classList.add('bi-volume-down-fill');
+    }else {
+        volumeIcon.classList.remove('bi-volume-off-fill');
+        volumeIcon.classList.remove('bi-volume-down-fill');
+        volumeIcon.classList.add('bi-volume-up-fill');
+    }
+    let barWidth = currentVolume.value *(70/100);
+    volumeBar.style.width = `${barWidth}%`;
+
+    currentTrack.volume = currentVolume.value/100;
+    
+})
 

@@ -22,47 +22,47 @@ let toptelugu;
       console.error(error);
     });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic_top_40/m9Qkal5S733ufxkxMEIbIw__`).then(function (response) {
-    //   console.log(response.data);
-    //   bestofromance=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic_top_40/m9Qkal5S733ufxkxMEIbIw__`).then(function (response) {
+      console.log(response.data);
+      bestofromance=response.data.songs;
+    }).catch(function (error) {
+      console.error(error);
+    });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/best-of-dance---hindi/qVvfieICUY5ieSJqt9HmOQ__`).then(function (response) {
-    //   console.log(response.data);
-    //   bestofdance=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/best-of-dance---hindi/qVvfieICUY5ieSJqt9HmOQ__`).then(function (response) {
+      console.log(response.data);
+      bestofdance=response.data.songs;
+    }).catch(function (error) {
+      console.error(error);
+    });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/latest-punjabi-hits/T,w3Z-u7t6A_`).then(function (response) {
-    //   console.log(response.data);
-    //   punjabisongs=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/latest-punjabi-hits/T,w3Z-u7t6A_`).then(function (response) {
+      console.log(response.data);
+      punjabisongs=response.data.songs;
+    }).catch(function (error) {
+      console.error(error);
+    });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/house-party---tamil/,9s3E3l5o0lFo9wdEAzFBA__`).then(function (response) {
-    //   console.log(response.data);
-    //   toptamil=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/house-party---tamil/,9s3E3l5o0lFo9wdEAzFBA__`).then(function (response) {
+      console.log(response.data);
+      toptamil=response.data.songs;
+    }).catch(function (error) {
+      console.error(error);
+    });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/pakka-beat/t7M-TsljMEPuCJW60TJk1Q__`).then(function (response) {
-    //   console.log(response.data);
-    //   toptelugu=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/pakka-beat/t7M-TsljMEPuCJW60TJk1Q__`).then(function (response) {
+      console.log(response.data);
+      toptelugu=response.data.songs;
+    }).catch(function (error) {
+      console.error(error);
+    });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/hindi_retro/dYn-,-QcKzA_`).then(function (response) {
-    //   console.log(response.data);
-    //   hindiretro=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/hindi_retro/dYn-,-QcKzA_`).then(function (response) {
+      console.log(response.data);
+      hindiretro=response.data.songs;
+    }).catch(function (error) {
+      console.error(error);
+    });
     
   
 
@@ -70,29 +70,29 @@ let trendingNow = [...trendingnow];
 contentArray.push(trendingNow);
 contentArrayName.push("Trending Now");
 
-// let bestOfRomance = [...bestofromance];
-// contentArray.push(bestOfRomance);
-// contentArrayName.push("Best Of Romance");
+let bestOfRomance = [...bestofromance];
+contentArray.push(bestOfRomance);
+contentArrayName.push("Best Of Romance");
 
-// let bestOfDance = [...bestofdance];
-// contentArray.push(bestOfDance);
-// contentArrayName.push("Best Of Dance");
+let bestOfDance = [...bestofdance];
+contentArray.push(bestOfDance);
+contentArrayName.push("Best Of Dance");
 
-// let punjabiSongs = [...punjabisongs];
-// contentArray.push(punjabiSongs);
-// contentArrayName.push("Punjabi Songs");
+let punjabiSongs = [...punjabisongs];
+contentArray.push(punjabiSongs);
+contentArrayName.push("Punjabi Songs");
 
-// let topTamil = [...toptamil];
-// contentArray.push(topTamil);
-// contentArrayName.push("Tamil Songs");
+let topTamil = [...toptamil];
+contentArray.push(topTamil);
+contentArrayName.push("Tamil Songs");
 
-// let topTelugu = [...toptelugu];
-// contentArray.push(topTelugu);
-// contentArrayName.push("Telugu Songs");
+let topTelugu = [...toptelugu];
+contentArray.push(topTelugu);
+contentArrayName.push("Telugu Songs");
 
-// let hindiRetro = [...hindiretro];
-// contentArray.push(hindiRetro);
-// contentArrayName.push("Hindi Retro");
+let hindiRetro = [...hindiretro];
+contentArray.push(hindiRetro);
+contentArrayName.push("Hindi Retro");
 
 
 let content = document.getElementsByClassName('content')[0];
