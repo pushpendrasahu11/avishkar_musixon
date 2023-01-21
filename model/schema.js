@@ -16,9 +16,48 @@ const userschema =mongoose.Schema(
     },
     password:{
         type:String,
-        required:'true'
+        default:""
+    },
+    likes:{
+        type:[String]
+    },
+    subscribed:{
+        type:Boolean,
+        default:false
+    },
+    playlist:{
+        type:[{
+            name:String,
+            list:[String]
+        }],
+        
+    },
+    image:{
+        type:String,
+        default:""
+    },
+    flag:{
+        type:Boolean,
+        default:false
+    },
+    history:{
+        type:[String],
+        default:[]
     }
 });
+
+const googleschema=mongoose.Schema({
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    
+})
 
 
 userschema.pre('save',async function(){
@@ -27,6 +66,6 @@ userschema.pre('save',async function(){
     let hash=await bcrypt.hash(this.password,salt);
     this.password=hash;
 })
-module.exports=userschema;
+module.exports={userschema,googleschema};
 
 

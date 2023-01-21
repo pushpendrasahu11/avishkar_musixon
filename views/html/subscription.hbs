@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./sign.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Log in</title>
+</head>
+<body>
+    <div class="main">
+        <div class="subscribediv">
+            
+                <label class="title" for="Subscribe">Subscribe</label>
+                
+                <div class="content">
+                   <p id="subcribecont">Subscription plan start at just ₹300 and you get access to download unlimited songs</p>
+                    <div class="submitbtn">
+                        <button id="pay-button">Subscribe</button>
+                    </div>
+                </div>
+           </div> 
+        
+    </div>
+    <script>
+        let btn=document.getElementById('pay-button');
+        btn.addEventListener('click', async function(e){
+          var order;
+        await axios.get('/createorder').then((res)=>{
+          order=res.data.order.id;
+    //   console.log(order.data.order.id)
+      console.log(order)
+     })
+        var options = {
+    "key": "rzp_test_1a29ysZKRKnlkl",
+    "amount": "30000",
+    "currency": "INR",
+    "name": "Musixon",
+    "description": "Subscription For Musixon",
+    "image": "https://images.pexels.com/photos/1337753/pexels-photo-1337753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "order_id":order , 
+    "callback_url": "http://localhost:3000/checkout",
+    "prefill": {
+        "name": "Musixon",
+        "email": "musixon@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Ground floor"
+    },
+    "theme": {
+        "color": "#22396d"
+    },
+    "animation":"true"
+};
+var rzp1 = new Razorpay(options);
+    rzp1.open();
+})
+    </script>
+</body>
+</html>

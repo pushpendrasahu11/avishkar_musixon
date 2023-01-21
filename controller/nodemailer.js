@@ -1,4 +1,5 @@
 const nodemailer=require('nodemailer');
+var user_email;
 var transport=nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -10,27 +11,31 @@ var transport=nodemailer.createTransport({
 })
 
 value=otp();
-var mailoption={
-        from:'rg515139@gmail.com',
-        to:'rg356403@gmail.com',
-        subject:'otp to signup at musixon',
-        text:`hello your otp is ${value}`,
-        html:`<h1> Hello This is OTP for Musixon ${value}</h1>`
-        
-        
-    }
+// let value;
 
 
 
 function otp(){
-var val = Math.floor(1000 + Math.random() * 9000);
-console.log(val);
-return val;
+    var val = Math.floor(1000 + Math.random() * 9000);
+    console.log(val);
+    return val;
 }
 
-
-function sendemail(){
-    transport.sendMail(mailoption,(err,info)=>{
+let cont;
+function sendemail(email,content,password){
+    user_email=email;
+    console.log(user_email)
+    mailoption.to=email;
+    if(content=="Your verification code is ")
+    mailoption.html=`<div><h3 style="color:black">Welcome to Musixon.${content}<b style="color:darkblue">${value}</b></h3>
+    </div>`
+    else{
+        mailoption.subject="Password Updated"
+        mailoption.html=`<div><h3 style="color:black">Welcome to Musixon.${content}<h2 style="color:darkblue">${password}</h2></h3>
+    </div>`
+    }
+    // value=otp();
+     transport.sendMail(mailoption,(err,info)=>{
         if(err){
           console.log(err);
         }
@@ -38,5 +43,15 @@ function sendemail(){
             console.log(info.response);
         }
     })
+}
+var mailoption={
+        from:'noreply@gmail.com',
+        to:user_email,
+        subject:'Verificaton code from Musixon',
+        text:`hello your otp is ${value}`,
+        html:cont,
+        
+        
+       
 }
 module.exports=sendemail;
