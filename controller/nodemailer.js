@@ -5,8 +5,8 @@ var transport=nodemailer.createTransport({
     port: 587,
     secure: false,
     auth:{
-        user:'rg515139@gmail.com',
-        pass:'wmuvsnjonauylcmh'
+        user:'',
+        pass:''
     }
 })
 
