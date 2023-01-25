@@ -1,0 +1,12 @@
+loading 10
+sbar = 2
+container .content .list li .image_play .like_icon = 2
+add menu =2
+bi-hearts = 0 , like effet = 1
+.usercontainer .content .content_head = 3
+queue = 0,big = 6
+queuehead = 5
+
+playedlength = 5
+current volume = 5;
+searchresult = 0 , bigbox = 6

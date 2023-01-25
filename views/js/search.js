@@ -1,11 +1,16 @@
+import { playTrack, allPlayButton } from '../js/player.js';
+
 var searchbutton=document.getElementById('searchbutton');
 var searchresult = document.getElementById('searchresultbox');
+var searchSongArray = Array.from(document.getElementsByClassName('search_play_icon'));
+
+
 
 searchbutton.addEventListener('click', async ()=>{
     let searchbar=document.getElementById('searchbar').value;
     console.log(searchbar)
     if(searchbar!=""){
-        await axios.get(`https://saavn.me/search/songs?query=${searchbar}&page=1&limit=30`)
+        await axios.get(`https://saavn.me/search/songs?query=${searchbar}&page=1&limit=20`)
         .then((res)=>{
             let searchcontent=res.data.data.results;
             console.log(searchcontent);
@@ -29,7 +34,13 @@ searchbutton.addEventListener('click', async ()=>{
                     </div>
             </li>`
             }
-
+            searchSongArray = Array.from(document.getElementsByClassName('search_play_icon'));
+            searchSongArray.forEach((item)=>{
+                item.addEventListener('click',(ele)=>{
+                    console.log('007')
+                    playTrack(ele.target.id);
+                })
+            })
             searchresult.classList.add("bigbox");
             // alert('done')
         })
@@ -40,9 +51,10 @@ searchbutton.addEventListener('click', async ()=>{
 })
 
 
+
 document.addEventListener('click',(e)=>{
     if(e.target.id !== 'searchbutton' && e.target.id !=='searchresultbox'){
-        console.log('closed search');
+        // console.log('closed search');
         searchresult.classList.remove("bigbox");
     }
 })

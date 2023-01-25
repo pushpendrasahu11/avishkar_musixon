@@ -1,7 +1,7 @@
 // import { find } from 'lodash';
 
 
-import { allDetail,allDetail1} from "./mainData.js";
+import { allDetail} from "./mainData.js";
 
 var tar = document.getElementsByClassName('content')[1];
 let useremail=document.getElementById('useremail').innerHTML;
@@ -20,7 +20,7 @@ async function finds(){
         tar.innerHTML+=`<h3>Liked songs</h3>`
 // console.log(len)
 for(let i=0;i<len;i++){
-       const info=await allDetail1(userlikes[i]);
+       const info=await allDetail(userlikes[i]);
         console.log(info)
             tar.innerHTML+=`<li class="song">
                             
@@ -69,7 +69,7 @@ if(len>0){
             for(let i=0;i<len;i++){
                 if(playlistsongsvar[i].name==ele.target.id){
                     for(let j=0;j<playlistsongsvar[i].list.length;j++){
-                        const info=await allDetail1(playlistsongsvar[i].list[j]);
+                        const info=await allDetail(playlistsongsvar[i].list[j]);
             tar.innerHTML+=`<li class="song">
                             
             <img src="${info.trackImage}" alt="">    
@@ -104,7 +104,7 @@ tar.innerHTML="";
 tar.innerHTML+=`<h3>History</h3>`
 for(let i=0;i<len;i++){
     console.log('hanji')
-    const info=await allDetail1(historysongdata[i]);
+    const info=await allDetail(historysongdata[i]);
     tar.innerHTML+=`<li class="song">
                             
     <img src="${info.trackImage}" alt="">    

@@ -7,13 +7,32 @@
 }
 
 body{
-    background-color: #f2f2f2;
+    background-color: #ffffff;
 }
 
 .main{
     position: relative;
     display: flex;
     flex-wrap: wrap;
+}
+
+.main .loading{
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    left: 50%;
+    margin-left: -250px;
+    top: 50%;
+    margin-top: -250px;
+    z-index: 10;  
+    transition: all 0.3s linear;
+}
+
+.main .loading img{
+    width:100%;
+    height:auto;
+    /* border: 2px solid #03c7c0;    */
+    border-radius: 8px;
 }
 
 .main .head{
@@ -82,7 +101,7 @@ body{
 #navbar .sbar input{
     font-size: 1rem;
     font-weight:600;
-    width: 335px;
+    width: 332px;
     height: 32px;
     padding: 0px 8px;
     /* top rigth bottom left */
@@ -144,13 +163,13 @@ button {
     display: none;
 }
 
-.main .container .top{
+/* .main .container .top{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 36%;
-    /* border: 1px solid #21a521; */
+    border: 1px solid #21a521;
 }
 .main .container .top img{
     height: 85%;
@@ -173,7 +192,7 @@ button {
 .main .container .top button{
     margin: 0 1%;
     height: 40px;
-    /* width: fit-content; */
+    width: fit-content;
 }
 
 .main .container .top #play{
@@ -185,7 +204,7 @@ button {
 }
 .main .container .top #add:hover{
     border: 1px solid #03c7c0;
-}
+} */
 
 .main .container .content{
     width: 100%;
@@ -622,7 +641,7 @@ button {
 /* queue */
 
 .main .queue{
-    z-index: 0 ;
+    z-index: -1 ;
     background-color:#f7f7f7;
     position: absolute;
     overflow: auto;
@@ -640,7 +659,7 @@ button {
 }
 
 .main .big{
-    z-index: 4;
+    z-index: 6;
     bottom:calc(8vh + 5px);
     left: 35%;
     width: 30%;
@@ -939,7 +958,7 @@ button {
 
  .music_player .volume #current_volume{
     position: absolute;
-    z-index: 500;
+    z-index: 5;
     width: 70%;
     /* height: 4px; */
     top:-9px;
@@ -961,7 +980,7 @@ button {
  .music_player .volume #vol_bar{
     position: absolute;
     height: 4px;
-    width:70%;
+    width:42%;
     top: -3px;
     left: 40px;
     border-radius: 5px;
@@ -1009,8 +1028,9 @@ button {
     left: 5%;
     width: 90%;
     height: 0px;
-    z-index: -2;
+    z-index: -1;
     top: 7vh;
+
     /* top: 8vh;
     
     height: 41vh;
@@ -1022,7 +1042,7 @@ button {
 .main .bigbox{
     top: 8vh;
     height: 41vh;
-    z-index: 5000;
+    z-index: 6;
 }
 
 .main .searchresult::-webkit-scrollbar{
@@ -1092,16 +1112,18 @@ button {
 .popup{
     position: absolute;
     top: -150%;
-    left: 38%;
+    left: 50%;
     opacity: 0;
-    transform: traslate(-50%,-50%) scale(1.25);
-    width: 380px;
-    height: 250px;
+    
+    width: 400px;
+    height: 200px;
+    margin-left: -200px;
+    margin-top: -100px;
     padding: 20px 30px;
     background:linear-gradient(44deg, rgb(92 206 207) 0%, rgb(192 225 239) 100%);
      box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15) ;
      border-radius: 10px;
-     transition: all 0.6s ease-in-out;
+     transition: all 1s linear;
      /* transition: top 0ms ease-in-out 200ms,
      opacity 200ms ease-in-out 0ms,
      transform 20ms ease-in-out 0ms; */
@@ -1109,16 +1131,17 @@ button {
 .popupforlogin{
     position: absolute;
     top: -150%;
-    left: 38%;
+    left: 50%;
     opacity: 0;
-    transform: traslate(-50%,-50%) scale(1.25);
     width: 380px;
     height: 150px;
+    margin-left: -190px;
+    margin-top: -75px;
     padding: 20px 30px;
     background:linear-gradient(44deg, rgb(92 206 207) 0%, rgb(192 225 239) 100%);
      box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15) ;
      border-radius: 10px;
-     transition: all 0.6s ease-in-out;
+     transition: all 1s linear;
      /* transition: top 0ms ease-in-out 200ms,
      opacity 200ms ease-in-out 0ms,
      transform 20ms ease-in-out 0ms; */
@@ -1126,16 +1149,18 @@ button {
 .playlistname{
     position: absolute;
     top: -300px;
-    left: 38%;
+    left: 50%;
     opacity: 0;
-    transform: traslate(-50%,-50%) scale(1.25);
+    
     width: 500px;
     height:200px;
+    margin-left: -250px;
+    margin-top: -100px;
     padding: 20px 30px;
     background:linear-gradient(44deg, rgb(92 206 207) 0%, rgb(192 225 239) 100%);
      box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15) ;
      border-radius: 10px;
-     transition: all 0.6s ease-in-out;
+     transition: all 1s linear;
      /* transition: top 0ms ease-in-out 200ms,
      opacity 200ms ease-in-out 0ms,
      transform 20ms ease-in-out 0ms; */
@@ -1167,17 +1192,19 @@ button {
 .existingplaylist{
     position: absolute;
     top: -300px;
-    left: 38%;
+    left: 50%;
     opacity: 0;
-    transform: traslate(-50%,-50%) scale(1.25);
+    
     width: 380px;
     height: auto;
     min-height: 100px;
+    margin-left: -190px;
+    margin-top: -60px;
     padding: 20px 30px;
     background:linear-gradient(44deg, rgb(92 206 207) 0%, rgb(192 225 239) 100%);
      box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15) ;
      border-radius: 10px;
-     transition: all 0.6s ease-in-out;
+     transition: all 1s linear;
      /* transition: top 0ms ease-in-out 200ms,
      opacity 200ms ease-in-out 0ms,
      transform 20ms ease-in-out 0ms; */
@@ -1201,49 +1228,15 @@ button {
     cursor: default;
   } */
 .show{
-    top:25%;
+    top:50%;
     opacity: 1;
+    z-index: 10;
 }
 .close{
     top:-150%;
-    transition:all 0.2s ease-in-out;
+    transition:all 1s linear;
 }
-.popup .active{
-    top: 30%;
-    /* opacity: 0; */
-    transform: traslate(-50%,-50%) scale(1);
-    /* transition:
-    top 0ms ease-in-out 0ms,
-    opacity 200ms ease-in-out 0ms,
-    transform 20ms ease-in-out 0ms; */
-}
-.popupforlogin .active{
-    top: 30%;
-    /* opacity: 0; */
-    transform: traslate(-50%,-50%) scale(1);
-    /* transition:
-    top 0ms ease-in-out 0ms,
-    opacity 200ms ease-in-out 0ms,
-    transform 20ms ease-in-out 0ms; */
-}
-.playlistname .active{
-    top: 100px;
-    /* opacity: 0; */
-    transform: traslate(-50%,-50%) scale(1);
-    /* transition:
-    top 0ms ease-in-out 0ms,
-    opacity 200ms ease-in-out 0ms,
-    transform 20ms ease-in-out 0ms; */
-}
-.existingplaylist .active{
-    top: 100px;
-    /* opacity: 0; */
-    transform: traslate(-50%,-50%) scale(1);
-    /* transition:
-    top 0ms ease-in-out 0ms,
-    opacity 200ms ease-in-out 0ms,
-    transform 20ms ease-in-out 0ms; */
-}
+
 .popup #close{
     position: absolute;
     top: 10px;
@@ -1365,6 +1358,7 @@ button {
     color: #f5f5f5;
     border-radius: 10px;
     cursor: pointer;
+    margin: 20px 0px;
 }
 .popupforlogin .form button{
     width: 100%;
