@@ -27,3 +27,23 @@ export async function allDetail(songname){
   trackDetail.trackLink=searchResult.perma_url;
   return trackDetail;
 }
+export async function allDetail1(songname){
+
+  let searchResult;
+
+  await axios.get(`https://saavn.me/songs?link=${songname}`).then(function (response) {
+    console.log(response.data.data);
+    searchResult=response.data.data[0];
+  }).catch(function (error) {
+    console.error(error);
+  });
+
+  trackDetail.trackTitle=searchResult.name;
+  trackDetail.trackArtists=searchResult.primaryArtists;
+  trackDetail.trackImage=searchResult.image[2].link;
+  trackDetail.trackUrl=searchResult.downloadUrl[2].link;
+  trackDetail.trackDuration=searchResult.duration;
+  trackDetail.trackId=searchResult.primaryArtistsId;
+  trackDetail.trackLink=searchResult.url;
+  return trackDetail;
+}

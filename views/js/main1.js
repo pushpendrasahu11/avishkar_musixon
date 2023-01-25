@@ -16,12 +16,12 @@ let toptamil;
 let toptelugu;
 
 
-    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic-hits-2022---hindi/EzSEwcZfOoB5b0dfvYvasw__`).then(function (response) {
-      console.log(response.data);
-      trendingnow=response.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
+    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic-hits-2022---hindi/EzSEwcZfOoB5b0dfvYvasw__`).then(function (response) {
+    //   console.log(response.data);
+    //   trendingnow=response.data.songs;
+    // }).catch(function (error) {
+    //   console.log(error);
+    // });
 
     // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic_top_40/m9Qkal5S733ufxkxMEIbIw__`).then(function (response) {
     //   console.log(response.data);
@@ -66,6 +66,17 @@ let toptelugu;
     // });
     
   
+
+    // new code-------------------------------------------------->>>>
+
+
+
+    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic-hits-2022---hindi/EzSEwcZfOoB5b0dfvYvasw__`).then(function (response) {
+      console.log(response.data);
+      trendingnow=response.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
 
 let trendingNow = [...trendingnow];
 contentArray.push(trendingNow);
