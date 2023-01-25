@@ -5,7 +5,7 @@ searchbutton.addEventListener('click', async ()=>{
     let searchbar=document.getElementById('searchbar').value;
     console.log(searchbar)
     if(searchbar!=""){
-        await axios.get(`https://saavn.me/search/songs?query=${searchbar}&page=1&limit=20`)
+        await axios.get(`https://saavn.me/search/songs?query=${searchbar}&page=1&limit=30`)
         .then((res)=>{
             let searchcontent=res.data.data.results;
             console.log(searchcontent);

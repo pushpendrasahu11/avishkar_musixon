@@ -35,7 +35,7 @@ export async function allDetail1(songname){
     console.log(response.data.data);
     searchResult=response.data.data[0];
   }).catch(function (error) {
-    console.error(error);
+    console.log(error);
   });
 
   trackDetail.trackTitle=searchResult.name;

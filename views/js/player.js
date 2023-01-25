@@ -1,4 +1,4 @@
-import { allDetail} from "./mainData.js";
+import { allDetail, allDetail1} from "./mainData.js";
 
 var currentImage = document.getElementById('current_image');
 var currentTitle = document.getElementById('currentTitle');
@@ -39,7 +39,7 @@ let tarQueue = document.getElementById('queueid');
 export async function playTrack(trackId,music){
     
     if(trackId==currentId && repeat!=1) return;
-    let trackDetail = await allDetail(trackId);
+    let trackDetail = await allDetail1(trackId);
     currentImage.src=trackDetail.trackImage;
     currentTitle.innerHTML=trackDetail.trackTitle;
     currentArtists.innerHTML=trackDetail.trackArtists;
