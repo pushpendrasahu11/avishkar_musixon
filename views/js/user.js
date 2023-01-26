@@ -1,7 +1,7 @@
 // import { find } from 'lodash';
 
 
-import { allDetail} from "./mainData.js";
+import { allDetail,allDetail1} from "./mainData.js";
 
 var tar = document.getElementsByClassName('content')[1];
 let useremail=document.getElementById('useremail').innerHTML;
@@ -16,12 +16,13 @@ async function finds(){
         userlikes=res.data;
 
         let len=userlikes.length;
+        console.log(len)
         tar.innerHTML="";
         tar.innerHTML+=`<h3>Liked songs</h3>`
 // console.log(len)
 for(let i=0;i<len;i++){
-       const info=await allDetail(userlikes[i]);
-        console.log(info)
+       const info=await allDetail1(userlikes[i]);
+        // console.log(info)
             tar.innerHTML+=`<li class="song">
                             
             <img src="${info.trackImage}" alt="">    
@@ -31,13 +32,57 @@ for(let i=0;i<len;i++){
 
             
             <i class="bi bi-heart-fill" style="color:#e81224;"></i>
-            <i class="bi bi-dash-circle" style="font-size:20px" id="removeplaylistsong"></i>
+            <i class="removelike bi bi-dash-circle" style="font-size:20px" id="${info.trackLink}"></i>
         </li>`
         }
     })
+
+   
+    
+    let removelike=Array.from(document.getElementsByClassName('removelike'))
+    removelike.forEach((item,index)=>{
+       item.addEventListener('click',async ()=>{
+      await axios.post('/removelike',{
+        useremail:useremail,
+        url:item.id
+      })
+      .then(async (res)=>{
+        console.log(res)
+        await finds();
+    //     await axios.post('/getlikesdata',{email:useremail})
+    // .then(async (res)=>{
+      
+        // console.log(res.data);
+    //     userlikes=res.data;
+    
+    //     let len=userlikes.length;
+    //     console.log(len)
+    //     tar.innerHTML="";
+    //     tar.innerHTML+=`<h3>Liked songs</h3>`
+    // // console.log(len)
+    // for(let i=0;i<len;i++){
+    //    const info=await allDetail1(userlikes[i]);
+    //     // console.log(info)
+    //         tar.innerHTML+=`<li class="song">
+                            
+    //         <img src="${info.trackImage}" alt="">    
+    //         <h4>${info.trackTitle}</h4>
+    //         <h5>${info.trackArtists}</h5>
+    
+    
+            
+    //         <i class="bi bi-heart-fill" style="color:#e81224;"></i>
+    //         <i class="removelike bi bi-dash-circle" style="font-size:20px" id="${info.trackLink}"></i>
+    //     </li>`
+    //     }
+    })
+      })
+      .catch((err)=>{
+        alert(err.message)
+      })
+       })
     
 }
-
 
 
 let playlistsongs=document.getElementById('playlistsongs');
@@ -69,7 +114,7 @@ if(len>0){
             for(let i=0;i<len;i++){
                 if(playlistsongsvar[i].name==ele.target.id){
                     for(let j=0;j<playlistsongsvar[i].list.length;j++){
-                        const info=await allDetail(playlistsongsvar[i].list[j]);
+                        const info=await allDetail1(playlistsongsvar[i].list[j]);
             tar.innerHTML+=`<li class="song">
                             
             <img src="${info.trackImage}" alt="">    
@@ -104,7 +149,7 @@ tar.innerHTML="";
 tar.innerHTML+=`<h3>History</h3>`
 for(let i=0;i<len;i++){
     console.log('hanji')
-    const info=await allDetail(historysongdata[i]);
+    const info=await allDetail1(historysongdata[i]);
     tar.innerHTML+=`<li class="song">
                             
     <img src="${info.trackImage}" alt="">    

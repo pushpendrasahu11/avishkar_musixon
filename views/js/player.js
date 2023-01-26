@@ -1,4 +1,4 @@
-import { allDetail} from "./mainData.js";
+import { allDetail1} from "./mainData.js";
 
 var currentImage = document.getElementById('current_image');
 var currentTitle = document.getElementById('currentTitle');
@@ -50,7 +50,7 @@ export async function playTrack(trackId){
     allPlayButton(playSongArray,trackId); 
     allPlayButton(searchSongArray,trackId);    
 
-    let trackDetail = await allDetail(trackId);
+    let trackDetail = await allDetail1(trackId);
     currentImage.src=trackDetail.trackImage;
     currentTitle.innerHTML=trackDetail.trackTitle;
     currentArtists.innerHTML=trackDetail.trackArtists;
@@ -267,6 +267,50 @@ mainPlayIcon.addEventListener('click', () => {
         allPauseButton(playSongArray,currentId);
     }
 })
+// mainPlayIcon.addEventListener('keypress',(e)=>{
+//     if(e.keyCode==32){
+//         console.log('key is pressed')
+//         if (music.paused || music.currentTime <= 0) {
+//             music.play();
+//             mainPlayIcon.classList.remove('bi-play-fill');
+//             mainPlayIcon.classList.add('bi-pause-fill');
+//             console.log(currentId+ " in main play" )
+//             allPlayButton(queueSongArray,currentId);
+//             allPlayButton(playSongArray,currentId);
+    
+//         } else {
+//             music.pause();
+//             mainPlayIcon.classList.add('bi-play-fill');
+//             mainPlayIcon.classList.remove('bi-pause-fill');
+//             console.log(currentId+ "in main pause" )
+//             allPauseButton(queueSongArray,currentId);
+//             allPauseButton(playSongArray,currentId);
+//         }
+//     }
+//     console.log(e)
+// })
+window.onkeydown=function(e){
+    if(e.keyCode==32){
+        console.log('key is pressed')
+        if (music.paused || music.currentTime <= 0) {
+            music.play();
+            mainPlayIcon.classList.remove('bi-play-fill');
+            mainPlayIcon.classList.add('bi-pause-fill');
+            console.log(currentId+ " in main play" )
+            allPlayButton(queueSongArray,currentId);
+            allPlayButton(playSongArray,currentId);
+    
+        } else {
+            music.pause();
+            mainPlayIcon.classList.add('bi-play-fill');
+            mainPlayIcon.classList.remove('bi-pause-fill');
+            console.log(currentId+ "in main pause" )
+            allPauseButton(queueSongArray,currentId);
+            allPauseButton(playSongArray,currentId);
+        }
+    }
+}
+
 
 export async function playPreviousSong(music){
 

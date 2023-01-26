@@ -1,8 +1,7 @@
 var download_song='Deva Deva';
-// import e from 'express';
 import { playTrack, updateTime, playNextSong, playPreviousSong } from '../js/player.js';
 
-
+let cnt=0;
 
 let contentArray=[];
 let contentArrayName=[];
@@ -14,53 +13,53 @@ let hindiretro;
 let punjabisongs;
 let toptamil;
 let toptelugu;
-let cnt=0;
+let sadsongs;
 
 
-    await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic-hits-2022---hindi/EzSEwcZfOoB5b0dfvYvasw__`).then(function (response) {
-      console.log(response.data); cnt++;
-      trendingnow=response.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
+    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic-hits-2022---hindi/EzSEwcZfOoB5b0dfvYvasw__`).then(function (response) {
+    //   console.log(response.data);
+    //   trendingnow=response.data.songs;
+    // }).catch(function (error) {
+    //   console.log(error);
+    // });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/decade-of-2010s%3A-romance---hindi/7OGmFfsGtN9ieSJqt9HmOQ__`).then(function (response) {
-    //   console.log(response.data); cnt++;
+    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic_top_40/m9Qkal5S733ufxkxMEIbIw__`).then(function (response) {
+    //   console.log(response.data);
     //   bestofromance=response.data.songs;
     // }).catch(function (error) {
     //   console.error(error);
     // });
 
     // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/best-of-dance---hindi/qVvfieICUY5ieSJqt9HmOQ__`).then(function (response) {
-    //   console.log(response.data); cnt++;
+    //   console.log(response.data);
     //   bestofdance=response.data.songs;
     // }).catch(function (error) {
     //   console.error(error);
     // });
 
     // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/latest-punjabi-hits/T,w3Z-u7t6A_`).then(function (response) {
-    //   console.log(response.data); cnt++;
+    //   console.log(response.data);
     //   punjabisongs=response.data.songs;
     // }).catch(function (error) {
     //   console.error(error);
     // });
 
     // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/house-party---tamil/,9s3E3l5o0lFo9wdEAzFBA__`).then(function (response) {
-    //   console.log(response.data); cnt++;
+    //   console.log(response.data);
     //   toptamil=response.data.songs;
     // }).catch(function (error) {
     //   console.error(error);
     // });
 
     // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/pakka-beat/t7M-TsljMEPuCJW60TJk1Q__`).then(function (response) {
-    //   console.log(response.data); cnt++;
+    //   console.log(response.data);
     //   toptelugu=response.data.songs;
     // }).catch(function (error) {
     //   console.error(error);
     // });
 
     // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/hindi_retro/dYn-,-QcKzA_`).then(function (response) {
-    //   console.log(response.data); cnt++;
+    //   console.log(response.data);
     //   hindiretro=response.data.songs;
     // }).catch(function (error) {
     //   console.error(error);
@@ -68,33 +67,137 @@ let cnt=0;
     
   
 
+    // new code-------------------------------------------------->>>>
+
+
+
+    await axios.get(`https://saavn.me/playlists?id=848372055`).then(function (response) {
+      console.log(response.data);
+      cnt++;
+      trendingnow=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+
+    await axios.get(`https://saavn.me/playlists?id=142311984`).then(function (response) {
+      console.log(response.data);cnt++;
+      bestofromance=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+    await axios.get(`https://saavn.me/playlists?id=1065035557`).then(function (response) {
+      console.log(response.data);cnt++;
+      bestofdance=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+    await axios.get(`https://saavn.me/playlists?id=1039423791`).then(function (response) {
+      console.log(response.data);cnt++;
+      hindiretro=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+    await axios.get(`https://saavn.me/playlists?id=848372061`).then(function (response) {
+      console.log(response.data);cnt++;
+      punjabisongs=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+    await axios.get(`https://saavn.me/playlists?id=799504062`).then(function (response) {
+      console.log(response.data);cnt++;
+      toptamil=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+    await axios.get(`https://saavn.me/playlists?id=83439798`).then(function (response) {
+      console.log(response.data);cnt++;
+      toptelugu=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+    await axios.get(`https://saavn.me/playlists?id=802336660`).then(function (response) {
+      console.log(response.data);cnt++;
+      sadsongs=response.data.data.songs;
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+
+    
 let trendingNow = [...trendingnow];
 contentArray.push(trendingNow);
 contentArrayName.push("Trending Now");
 
-// let bestOfRomance = [...bestofromance];
-// contentArray.push(bestOfRomance);
-// contentArrayName.push("Best Of Romance");
+let bestOfRomance = [...bestofromance];
+contentArray.push(bestOfRomance);
+contentArrayName.push("Best Of Romance");
 
-// let bestOfDance = [...bestofdance];
-// contentArray.push(bestOfDance);
-// contentArrayName.push("Best Of Dance");
+let bestOfDance = [...bestofdance];
+contentArray.push(bestOfDance);
+contentArrayName.push("Best Of Dance");
 
-// let punjabiSongs = [...punjabisongs];
-// contentArray.push(punjabiSongs);
-// contentArrayName.push("Punjabi Songs");
+let punjabiSongs = [...punjabisongs];
+contentArray.push(punjabiSongs);
+contentArrayName.push("Punjabi Songs");
 
-// let topTamil = [...toptamil];
-// contentArray.push(topTamil);
-// contentArrayName.push("Tamil Songs");
+let topTamil = [...toptamil];
+contentArray.push(topTamil);
+contentArrayName.push("Tamil Songs");
 
-// let topTelugu = [...toptelugu];
-// contentArray.push(topTelugu);
-// contentArrayName.push("Telugu Songs");
+let topTelugu = [...toptelugu];
+contentArray.push(topTelugu);
+contentArrayName.push("Krishna Songs");
 
-// let hindiRetro = [...hindiretro];
-// contentArray.push(hindiRetro);
-// contentArrayName.push("Hindi Retro");
+let hindiRetro = [...hindiretro];
+contentArray.push(hindiRetro);
+contentArrayName.push("English Beat");
+
+
+let sadSongs = [...sadsongs];
+contentArray.push(sadSongs);
+contentArrayName.push("Sad songs");
+
+
+// let content = document.getElementsByClassName('content')[0];
+// console.log(contentArrayName);
+// for(let i=0;i<contentArray.length;i++){
+//     content.innerHTML+=`<div class="list" id="list0${i}">
+//                     <i class="bi bi-chevron-left"></i>
+//                     <h3>${contentArrayName[i]}</h3>
+//                     <div class="songs"> 
+//                     </div>
+//                         <i class="bi bi-chevron-right"></i>
+//                 </div>`
+    
+//     let tar = document.getElementsByClassName('songs')[i];
+//     let limit = 20;
+//     if(contentArray[i].length < 20) limit = contentArray[i].length;
+//     for (let j = 0; j < limit; j++) {
+        
+//         tar.innerHTML += `<li class="song" >
+//         <div class="image_play">
+//             <img src="${contentArray[i][j].image}" alt="">
+//             <img class="play_icon" id="${contentArray[i][j].perma_url}" src="../images/play.svg" alt="">
+//             <i class="like_icon bi bi-heart" id="${contentArray[i][j].perma_url}"></i>
+//             <i class="bi bi-hearts"></i>
+//             <i class="bi bi-plus-circle" id="${contentArray[i][j].perma_url}"></i>
+//             <ul class="add_menu hide" >
+            
+//              <li  class="newplaylist" id="${contentArray[i][j].perma_url}">New playlist</li>
+//              <li class="existone" id="${contentArray[i][j].perma_url}">Existing playlist</li>
+             
+//             </ul>
+//         </div>      
+//         <div>
+//             <h5 style="font-size:15px;" >${contentArray[i][j].song}</h5>
+//             <h5>${contentArray[i][j].primary_artists}</h5>
+//         </div>
+        
+//     </li>`
+//     }
+
+// }
 
 
 let content = document.getElementsByClassName('content')[0];
@@ -115,21 +218,21 @@ for(let i=0;i<contentArray.length;i++){
         
         tar.innerHTML += `<li class="song" >
         <div class="image_play">
-            <img src="${contentArray[i][j].image}" alt="">
-            <img class="play_icon" id="${contentArray[i][j].perma_url}" src="../images/play.svg" alt="">
-            <i class="like_icon bi bi-heart" id="${contentArray[i][j].perma_url}"></i>
+            <img src="${contentArray[i][j].image[2].link}" alt="">
+            <img class="play_icon" id="${contentArray[i][j].url}" src="../images/play.svg" alt="">
+            <i class="like_icon bi bi-heart" id="${contentArray[i][j].url}"></i>
             <i class="bi bi-hearts"></i>
-            <i class="bi bi-plus-circle" id="${contentArray[i][j].perma_url}"></i>
+            <i class="bi bi-plus-circle" id="${contentArray[i][j].url}"></i>
             <ul class="add_menu hide" >
             
-             <li  class="newplaylist" id="${contentArray[i][j].perma_url}">New playlist</li>
-             <li class="existone" id="${contentArray[i][j].perma_url}">Existing playlist</li>
+             <li  class="newplaylist" id="${contentArray[i][j].url}">New playlist</li>
+             <li class="existone" id="${contentArray[i][j].url}">Existing playlist</li>
              
             </ul>
         </div>      
         <div>
-            <h5 style="font-size:15px;" >${contentArray[i][j].song}</h5>
-            <h5>${contentArray[i][j].primary_artists}</h5>
+            <h5 style="font-size:15px;" >${contentArray[i][j].name}</h5>
+            <h5>${contentArray[i][j].primaryArtists}</h5>
         </div>
         
     </li>`
@@ -137,10 +240,12 @@ for(let i=0;i<contentArray.length;i++){
 
 }
 
+
 if(cnt==contentArray.length){
+
+    console.log('done');
     document.getElementsByClassName('loading')[0].classList.add('hide');
 }
-console.log('done');
 
 var songArray = Array.from(document.getElementsByClassName('play_icon'));
 
@@ -662,7 +767,7 @@ let useremail=document.getElementById('useremail').innerHTML
         
                 btn.classList.remove('show')
                 btn.classList.add('close');
-                alert(`Song has been added to ${element.target.id}`)
+                // alert(`Song has been added to ${element.target.id}`)
                })
              })
             })

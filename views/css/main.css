@@ -10,6 +10,10 @@ body{
     background-color: #ffffff;
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 .main{
     position: relative;
     display: flex;
@@ -641,7 +645,7 @@ button {
 /* queue */
 
 .main .queue{
-    z-index: -1 ;
+    z-index: 11 ;
     background-color:#f7f7f7;
     position: absolute;
     overflow: auto;
@@ -650,7 +654,8 @@ button {
     left: 48%;
     border: 2px solid #03c7c0;
     border-radius: 8px;
-    bottom: 0px;
+    bottom: -42px;
+    opacity: 0;
     /* bottom:8vh; */
     /* left: 35%;
     width: 30%;
@@ -659,7 +664,8 @@ button {
 }
 
 .main .big{
-    z-index: 6;
+    z-index: 11;
+    opacity: 1;
     bottom:calc(8vh + 5px);
     left: 35%;
     width: 30%;
@@ -1028,21 +1034,23 @@ button {
     left: 5%;
     width: 90%;
     height: 0px;
-    z-index: -1;
+    z-index: 11;
     top: 7vh;
+    opacity: 0;
 
     /* top: 8vh;
     
     height: 41vh;
     z-index: 5000; */
 
-    transition: all 0.4s ease-out;
+    transition: all 0.5s linear;
 }
 
 .main .bigbox{
     top: 8vh;
+    opacity: 1;
     height: 41vh;
-    z-index: 6;
+    z-index: 11;
 }
 
 .main .searchresult::-webkit-scrollbar{
