@@ -1,221 +1,202 @@
-var download_song='Deva Deva';
-import { playTrack, updateTime, playNextSong, playPreviousSong } from '../js/player.js';
+var download_song = 'Deva Deva';
+import { playTrack, updateTime, playNextSong, playPreviousSong, addTrackInQueue, addPlaylistInQueue } from '../js/player.js';
+import { allDetail1} from "./mainData.js";
 
-let cnt=0;
+let cnt = 0;
 
-let contentArray=[];
-let contentArrayName=[];
+
+let contentArray = [];
+let contentArrayName = [];
+
 
 let trendingnow;
+let newrelease;
 let bestofromance;
 let bestofdance;
-let hindiretro;
 let punjabisongs;
 let toptamil;
 let toptelugu;
+let krishnasongs;
+let englishsongs;
 let sadsongs;
 
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic-hits-2022---hindi/EzSEwcZfOoB5b0dfvYvasw__`).then(function (response) {
-    //   console.log(response.data);
-    //   trendingnow=response.data.songs;
-    // }).catch(function (error) {
-    //   console.log(error);
-    // });
+await axios.get(`https://saavn.me/playlists?id=848372055`).then(function (response) {
+    console.log(response.data);
+    cnt++;
+    trendingnow = response.data.data.songs;
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/romantic_top_40/m9Qkal5S733ufxkxMEIbIw__`).then(function (response) {
-    //   console.log(response.data);
-    //   bestofromance=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    let trendingNow = [...trendingnow];
+    contentArray.push(trendingNow);
+    contentArrayName.push("Trending Now");
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/best-of-dance---hindi/qVvfieICUY5ieSJqt9HmOQ__`).then(function (response) {
-    //   console.log(response.data);
-    //   bestofdance=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/latest-punjabi-hits/T,w3Z-u7t6A_`).then(function (response) {
-    //   console.log(response.data);
-    //   punjabisongs=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+}).catch(function (error) {
+    console.log(error);
+});
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/house-party---tamil/,9s3E3l5o0lFo9wdEAzFBA__`).then(function (response) {
-    //   console.log(response.data);
-    //   toptamil=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
 
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/pakka-beat/t7M-TsljMEPuCJW60TJk1Q__`).then(function (response) {
-    //   console.log(response.data);
-    //   toptelugu=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
-
-    // await axios.get(`https://apimusic-xbv1.onrender.com/result/?query=https://www.jiosaavn.com/featured/hindi_retro/dYn-,-QcKzA_`).then(function (response) {
-    //   console.log(response.data);
-    //   hindiretro=response.data.songs;
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
-    
-  
-
-    // new code-------------------------------------------------->>>>
+await axios.get(`https://saavn.me/playlists?id=6689255`).then(function (response) {
+    console.log(response.data); cnt++;
+    newrelease = response.data.data.songs;
 
 
 
-    await axios.get(`https://saavn.me/playlists?id=848372055`).then(function (response) {
-      console.log(response.data);
-      cnt++;
-      trendingnow=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
+    let newRelease = [...newrelease];
+    contentArray.push(newRelease);
+    contentArrayName.push("New Release");
 
 
-    await axios.get(`https://saavn.me/playlists?id=142311984`).then(function (response) {
-      console.log(response.data);cnt++;
-      bestofromance=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
-    await axios.get(`https://saavn.me/playlists?id=1065035557`).then(function (response) {
-      console.log(response.data);cnt++;
-      bestofdance=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
-    await axios.get(`https://saavn.me/playlists?id=1039423791`).then(function (response) {
-      console.log(response.data);cnt++;
-      hindiretro=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
-    await axios.get(`https://saavn.me/playlists?id=848372061`).then(function (response) {
-      console.log(response.data);cnt++;
-      punjabisongs=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
-    await axios.get(`https://saavn.me/playlists?id=799504062`).then(function (response) {
-      console.log(response.data);cnt++;
-      toptamil=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
-    await axios.get(`https://saavn.me/playlists?id=83439798`).then(function (response) {
-      console.log(response.data);cnt++;
-      toptelugu=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
-    await axios.get(`https://saavn.me/playlists?id=802336660`).then(function (response) {
-      console.log(response.data);cnt++;
-      sadsongs=response.data.data.songs;
-    }).catch(function (error) {
-      console.log(error);
-    });
+}).catch(function (error) {
+    console.log(error);
+});
 
 
-    
-let trendingNow = [...trendingnow];
-contentArray.push(trendingNow);
-contentArrayName.push("Trending Now");
-
-let bestOfRomance = [...bestofromance];
-contentArray.push(bestOfRomance);
-contentArrayName.push("Best Of Romance");
-
-let bestOfDance = [...bestofdance];
-contentArray.push(bestOfDance);
-contentArrayName.push("Best Of Dance");
-
-let punjabiSongs = [...punjabisongs];
-contentArray.push(punjabiSongs);
-contentArrayName.push("Punjabi Songs");
-
-let topTamil = [...toptamil];
-contentArray.push(topTamil);
-contentArrayName.push("Tamil Songs");
-
-let topTelugu = [...toptelugu];
-contentArray.push(topTelugu);
-contentArrayName.push("Krishna Songs");
-
-let hindiRetro = [...hindiretro];
-contentArray.push(hindiRetro);
-contentArrayName.push("English Beat");
+await axios.get(`https://saavn.me/playlists?id=903166403`).then(function (response) {
+    console.log(response.data); cnt++;
+    bestofromance = response.data.data.songs;
 
 
-let sadSongs = [...sadsongs];
-contentArray.push(sadSongs);
-contentArrayName.push("Sad songs");
+    let bestOfRomance = [...bestofromance];
+    contentArray.push(bestOfRomance);
+    contentArrayName.push("Best Of Romance");
+
+}).catch(function (error) {
+    console.log(error);
+});
 
 
-// let content = document.getElementsByClassName('content')[0];
-// console.log(contentArrayName);
-// for(let i=0;i<contentArray.length;i++){
-//     content.innerHTML+=`<div class="list" id="list0${i}">
-//                     <i class="bi bi-chevron-left"></i>
-//                     <h3>${contentArrayName[i]}</h3>
-//                     <div class="songs"> 
-//                     </div>
-//                         <i class="bi bi-chevron-right"></i>
-//                 </div>`
-    
-//     let tar = document.getElementsByClassName('songs')[i];
-//     let limit = 20;
-//     if(contentArray[i].length < 20) limit = contentArray[i].length;
-//     for (let j = 0; j < limit; j++) {
-        
-//         tar.innerHTML += `<li class="song" >
-//         <div class="image_play">
-//             <img src="${contentArray[i][j].image}" alt="">
-//             <img class="play_icon" id="${contentArray[i][j].perma_url}" src="../images/play.svg" alt="">
-//             <i class="like_icon bi bi-heart" id="${contentArray[i][j].perma_url}"></i>
-//             <i class="bi bi-hearts"></i>
-//             <i class="bi bi-plus-circle" id="${contentArray[i][j].perma_url}"></i>
-//             <ul class="add_menu hide" >
-            
-//              <li  class="newplaylist" id="${contentArray[i][j].perma_url}">New playlist</li>
-//              <li class="existone" id="${contentArray[i][j].perma_url}">Existing playlist</li>
-             
-//             </ul>
-//         </div>      
-//         <div>
-//             <h5 style="font-size:15px;" >${contentArray[i][j].song}</h5>
-//             <h5>${contentArray[i][j].primary_artists}</h5>
-//         </div>
-        
-//     </li>`
-//     }
+await axios.get(`https://saavn.me/playlists?id=79653434`).then(function (response) {
+    console.log(response.data); cnt++;
+    bestofdance = response.data.data.songs;
 
-// }
+
+    let bestOfDance = [...bestofdance];
+    contentArray.push(bestOfDance);
+    contentArrayName.push("Best Of Dance");
+
+
+}).catch(function (error) {
+    console.log(error);
+});
+
+
+await axios.get(`https://saavn.me/playlists?id=1039423791`).then(function (response) {
+    console.log(response.data); cnt++;
+    englishsongs = response.data.data.songs;
+
+
+    let englishSongs = [...englishsongs];
+    contentArray.push(englishSongs);
+    contentArrayName.push("English Beat");
+
+
+
+
+}).catch(function (error) {
+    console.log(error);
+});
+
+
+await axios.get(`https://saavn.me/playlists?id=848372061`).then(function (response) {
+    console.log(response.data); cnt++;
+    punjabisongs = response.data.data.songs;
+
+
+
+    let punjabiSongs = [...punjabisongs];
+    contentArray.push(punjabiSongs);
+    contentArrayName.push("Punjabi Songs");
+
+
+}).catch(function (error) {
+    console.log(error);
+});
+
+
+await axios.get(`https://saavn.me/playlists?id=848372057`).then(function (response) {
+    console.log(response.data); cnt++;
+    toptamil = response.data.data.songs;
+
+
+    let topTamil = [...toptamil];
+    contentArray.push(topTamil);
+    contentArrayName.push("Tamil Songs");
+
+
+}).catch(function (error) {
+    console.log(error);
+});
+
+
+await axios.get(`https://saavn.me/playlists?id=848372058`).then(function (response) {
+    console.log(response.data); cnt++;
+    toptelugu = response.data.data.songs;
+
+
+    let topTelugu = [...toptelugu];
+    contentArray.push(topTelugu);
+    contentArrayName.push("Telugu Songs");
+
+
+}).catch(function (error) {
+    console.log(error);
+});
+
+
+await axios.get(`https://saavn.me/playlists?id=83439798`).then(function (response) {
+    console.log(response.data); cnt++;
+    krishnasongs = response.data.data.songs;
+
+
+    let krishnaSongs = [...krishnasongs];
+    contentArray.push(krishnaSongs);
+    contentArrayName.push("Krishna Songs");
+
+
+}).catch(function (error) {
+    console.log(error);
+});
+
+await axios.get(`https://saavn.me/playlists?id=802336660`).then(function (response) {
+    console.log(response.data); cnt++;
+    sadsongs = response.data.data.songs;
+
+
+    let sadSongs = [...sadsongs];
+    contentArray.push(sadSongs);
+    contentArrayName.push("Sad songs");
+
+
+}).catch(function (error) {
+    console.log(error);
+});
+
+
+
+
+
+
+console.log(contentArray);
 
 
 let content = document.getElementsByClassName('content')[0];
 console.log(contentArrayName);
-for(let i=0;i<contentArray.length;i++){
-    content.innerHTML+=`<div class="list" id="list0${i}">
+for (let i = 0; i < contentArray.length; i++) {
+    content.innerHTML += `<div class="list" id="list0${i}">
                     <i class="bi bi-chevron-left"></i>
-                    <h3>${contentArrayName[i]}</h3>
-                    <div class="songs"> 
+                    <h3>${contentArrayName[i]} <button class="playall" id="${i}">Play</button> </h3>
+                   
+                    <div class="songs">
                     </div>
                         <i class="bi bi-chevron-right"></i>
                 </div>`
-    
+
     let tar = document.getElementsByClassName('songs')[i];
-    let limit = 20;
-    if(contentArray[i].length < 20) limit = contentArray[i].length;
+    let limit = 40;
+    if (contentArray[i].length < 40) limit = contentArray[i].length;
     for (let j = 0; j < limit; j++) {
-        
+
         tar.innerHTML += `<li class="song" >
         <div class="image_play">
             <img src="${contentArray[i][j].image[2].link}" alt="">
@@ -224,7 +205,7 @@ for(let i=0;i<contentArray.length;i++){
             <i class="bi bi-hearts"></i>
             <i class="bi bi-plus-circle" id="${contentArray[i][j].url}"></i>
             <ul class="add_menu hide" >
-            
+           
              <li  class="newplaylist" id="${contentArray[i][j].url}">New playlist</li>
              <li class="existone" id="${contentArray[i][j].url}">Existing playlist</li>
              
@@ -234,18 +215,78 @@ for(let i=0;i<contentArray.length;i++){
             <h5 style="font-size:15px;" >${contentArray[i][j].name}</h5>
             <h5>${contentArray[i][j].primaryArtists}</h5>
         </div>
-        
+       
     </li>`
     }
-
 }
 
 
-if(cnt==contentArray.length){
+if (cnt == contentArray.length) {
+
 
     console.log('done');
     document.getElementsByClassName('loading')[0].classList.add('hide');
 }
+
+
+var allarray = Array.from(document.getElementsByClassName('playall'));
+
+
+allarray.forEach((item) => {
+    item.addEventListener('click', async (ele) => {
+        // console.log('kaam done ');
+        addPlaylistInQueue(contentArray[ele.target.id]);
+        playTrack(contentArray[ele.target.id][0].url);
+    })
+})
+
+
+var allarray = Array.from(document.getElementsByClassName('playall'));
+var newplaylistarray = Array.from(document.getElementsByClassName('newplaylist'));
+var existone = Array.from(document.getElementsByClassName('existone'));
+var like_icon = Array.from(document.getElementsByClassName('like_icon'));
+var plus_icon = Array.from(document.getElementsByClassName('plus_icon'));
+
+let downloadbtn = document.getElementById('downloadbtn');
+// let menu_icon = document.getElementById('menu_icon');
+// let playerMenu = document.getElementsByClassName('player_menu')[0];
+
+// menu_icon.addEventListener('click',()=>{
+//     if(insertId()==1){
+//     downloadbtn=document.getElementById('downloadbtn');
+//      newplaylistarray = Array.from(document.getElementsByClassName('newplaylist'));
+//      existone = Array.from(document.getElementsByClassName('existone'));
+//      like_icon =Array.from(document.getElementsByClassName('like_icon'));
+//      plus_icon =Array.from(document.getElementsByClassName('plus_icon'));
+//      console.log(newplaylistarray);
+//      console.log('aray updateddt')
+//     }
+// })
+
+allarray.forEach((item) => {
+    item.addEventListener('click', async (ele) => {
+        console.log('kaam done ');
+        addPlaylistInQueue(contentArray[ele.target.id]);
+        playTrack(contentArray[ele.target.id][0].url);
+        if (document.getElementById('useremail').innerHTML != 'Login') {
+            try {
+                await axios.post('/history', {
+                    "id": contentArray[ele.target.id][0].url,
+                    "useremail": document.getElementById('useremail').innerHTML
+                }).then((res) => {
+                    console.log(res);
+                    swal('age')
+                    // res.redirect('/login')
+                })
+            }
+            catch (err) {
+                swal(err.message)
+            }
+
+        }
+        console.log('agge bad gaya')
+    })
+})
 
 var songArray = Array.from(document.getElementsByClassName('play_icon'));
 
@@ -258,24 +299,41 @@ playplaylist(songArray);
 async function playplaylist(array) {
     array.forEach((item) => {
         item.addEventListener('click', async (ele) => {
-           download_song=ele.target.id;
-// console.log('id is '+ele.target.id)
+            download_song = ele.target.id;
+            // console.log('id is '+ele.target.id)
             playTrack(ele.target.id);
-           
-            console.log("id is here "+ ele.target.id);
+
+            console.log("id is here " + ele.target.id);
             // allPlayButton(array,ele.target.id);
             // item.src = `../images/pause.svg`
             console.log('icon change done')
-            if(document.getElementById('useremail').innerHTML!='Login'){
-                await axios.post('/history',{
-                    "id":ele.target.id,
-                    "useremail":document.getElementById('useremail').innerHTML
-                }).then((res)=>{
-                    console.log(res);
-                    // res.redirect('/login')
-                })
+            // if(document.getElementById('useremail').innerHTML!='Login'){
+            //     await axios.post('/history',{
+            //         "id":ele.target.id,
+            //         "useremail":document.getElementById('useremail').innerHTML
+            //     }).then((res)=>{
+            //         console.log(res);
+            //         // res.redirect('/login')
+            //     })
+            // }
+            if (document.getElementById('useremail').innerHTML != 'Login') {
+                try {
+                    await axios.post('/history', {
+                        "id": ele.target.id,
+                        "useremail": document.getElementById('useremail').innerHTML
+                    }).then((res) => {
+                        console.log(res);
+                        swal('age')
+                        // res.redirect('/login')
+                    })
+                }
+                catch (err) {
+                    swal(err.message)
+                }
+
             }
-            
+            console.log('agge bad gaya')
+
         })
     })
 
@@ -351,43 +409,43 @@ for (let i = 0; i < my_list_length; i++) {
 //     })
 // })
 
-let add_icon =Array.from(document.getElementsByClassName('bi-plus-circle'));
-let add_menu=Array.from(document.getElementsByClassName('add_menu'));
+let add_icon = Array.from(document.getElementsByClassName('bi-plus-circle'));
+let add_menu = Array.from(document.getElementsByClassName('add_menu'));
 
 add_icon.forEach((item, index) => {
-    item.addEventListener( 'click', async () => {
-        if(document.getElementById('useremail').innerHTML=='Login'){
+    item.addEventListener('click', async () => {
+        if (document.getElementById('useremail').innerHTML == 'Login') {
             fun1();
-         
-        }
-        else{
-        let menu = add_menu[index];
-        console.log(item.id)
-       
-        console.log(add_menu[index]);
 
-        if (menu.className == 'add_menu hide') {
-            add_menu.map((obj)=>{
-                obj.classList.remove('show');
-                obj.classList.add('hide');
-            })
-            menu.classList.remove('hide');
-            menu.classList.add('show');
         }
         else {
-            menu.classList.remove('show');
-            menu.classList.add('hide');
-        }
+            let menu = add_menu[index];
+            console.log(item.id)
 
-        document.addEventListener('click',(e)=>{
-            if(e.target.id !== item.id ){
+            console.log(add_menu[index]);
+
+            if (menu.className == 'add_menu hide') {
+                add_menu.map((obj) => {
+                    obj.classList.remove('show');
+                    obj.classList.add('hide');
+                })
+                menu.classList.remove('hide');
+                menu.classList.add('show');
+            }
+            else {
                 menu.classList.remove('show');
                 menu.classList.add('hide');
             }
-        })
 
-    }
-})
+            document.addEventListener('click', (e) => {
+                if (e.target.id !== item.id) {
+                    menu.classList.remove('show');
+                    menu.classList.add('hide');
+                }
+            })
+
+        }
+    })
 })
 
 
@@ -395,116 +453,123 @@ add_icon.forEach((item, index) => {
 console.log('ok');
 
 
-let like_icon =Array.from(document.getElementsByClassName('like_icon'));
-let plus_icon =Array.from(document.getElementsByClassName('plus_icon'));
 
 // console.log(like_icon[32]);
 
 // let hi = new Audio('../songs/song5.mp3');
 // hi.play();
 
-like_icon.forEach( (item,index) => {
-    item.addEventListener('click',async ()=>{
+like_icon.forEach((item, index) => {
+    item.addEventListener('click', async () => {
         // console.log(item.className)
         // console.log(item.id);
         // console.log(index)
         // console.log(document.getElementById('user').innerText)
         let effect = document.getElementsByClassName('bi-hearts')[index];
-        if(item.className == 'like_icon bi bi-heart'){
-            
+        if (item.className == 'like_icon bi bi-heart') {
+
             // console.log(document.getElementById('user').innerHTML)
-            if(document.getElementById('useremail').innerHTML=='Login'){
+            if (document.getElementById('useremail').innerHTML == 'Login') {
                 fun1();
-             
+
             }
-            else{
+            else {
                 item.classList.remove('bi-heart');
-            item.classList.add('bi-heart-fill');
-            
-            effect.classList.add('like-effect');
-                await axios.post('/likes',{
-                    "id":item.id,
-                    "user_email":document.getElementById('useremail').innerHTML
-                }).then((res)=>{
+                item.classList.add('bi-heart-fill');
+
+                effect.classList.add('like-effect');
+                await axios.post('/likes', {
+                    "id": item.id,
+                    "user_email": document.getElementById('useremail').innerHTML
+                }).then((res) => {
                     // console.log(res);
                     // res.redirect('/login')
                 })
             }
             // console.log(document.getElementsByClassName('bi-hearts')[index].className);
         }
-        else{
+        else {
             effect.classList.remove('like-effect');
             item.classList.remove('bi-heart-fill');
             item.classList.add('bi-heart');
         }
-       
+
     })
 })
-let downloadbtn=document.getElementById('downloadbtn');
-downloadbtn.addEventListener('click', async ()=>{
-    if(document.getElementById('user').innerHTML=='Login'){
-       fun1();
-     
-    }
-    else{
-        
-          var data_download=document.getElementById('user').innerHTML;
-          var email_download=document.getElementById('useremail').innerHTML;
-          var flag_check=false;
-          await axios.post('/checksubscription',{
-            email:email_download
-          }).then(async (res)=>{
-            console.log(res.data)
-            if(res.data==true){
 
+downloadbtn.addEventListener('click', async () => {
+    if (document.getElementById('user').innerHTML == 'Login') {
+        fun1();
+
+    }
+    else {
+
+        var data_download = document.getElementById('user').innerHTML;
+        var email_download = document.getElementById('useremail').innerHTML;
+        var flag_check = false;
+        await axios.post('/checksubscription', {
+            email: email_download
+        }).then(async (res) => {
+            if (res.data == true) {
+                // console.log(res.data)
+
+                    console.log(download_song)
+                    const solvedresult=await allDetail1(download_song);
+                    console.log(solvedresult.trackTitle)
                 const options = {
                     method: 'GET',
-                    url: 'https://youtube-music1.p.rapidapi.com/v2/search',
-                    params: {query: download_song},
+                    url: 'https://jio-saavan-unofficial.p.rapidapi.com/getdata',
+                    params: { q: solvedresult.trackTitle },
                     headers: {
+                        'X-RapidAPI-Key': '6a470279c7mshc24e7631ba39188p13309ajsna8c3e521439b',
+                        'X-RapidAPI-Host': 'jio-saavan-unofficial.p.rapidapi.com'
+                    }
+                };
+                var download_id;
+                await axios.request(options).then(function (response) {
+                    // console.log(response.data.result.songs[0].id)
+                    // console.log(response.result.songs[0].id)
+                    // console.log(response.data)
+                    download_id = response.data.results[0].encrypted_media_url;
+                    console.log(download_id);
+                }).catch(function (error) {
+                    swal(error.message)
+                });
+                const options1 = {
+                    method: 'POST',
+                    url: 'https://jio-saavan-unofficial.p.rapidapi.com/getsong',
+                    headers: {
+                      'content-type': 'application/json',
                       'X-RapidAPI-Key': '6a470279c7mshc24e7631ba39188p13309ajsna8c3e521439b',
-                      'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+                      'X-RapidAPI-Host': 'jio-saavan-unofficial.p.rapidapi.com'
+                    },
+                    data: {
+                      encrypted_media_url: download_id
                     }
                   };
-                   var download_id;
-                   await axios.request(options).then(function (response) {
-                      // console.log(response.data.result.songs[0].id)
-                      // console.log(response.result.songs[0].id)
-                      download_id=response.data.result.songs[0].id;
-                      console.log(download_id);
-                  }).catch(function (error) {
-                      console.error(error);
-                  });
-                  
-                  const options1 = {
-                      method: 'GET',
-                      url: 'https://youtube-music1.p.rapidapi.com/get_download_url',
-                      params: {id:download_id, ext: 'mp3'},
-                      headers: {
-                        'X-RapidAPI-Key': '6a470279c7mshc24e7631ba39188p13309ajsna8c3e521439b',
-                        'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
-                      }
-                    };
-                    var download_url;
-                    await axios.request(options1).then(function (response) {
-                      // console.log(response.data.result.download_url);
-                        download_url=response.data.result.download_url;
-                        window.open(download_url)
-                        console.log(download_url)
-                    }).catch(function (error) {
-                        console.error(error);
-                    });
+               
+                await axios.request(options1).then(function (response) {
+                    // console.log(response.data.result.download_url);
+                    let result = response.data.results[0]
+                    let download_url=Object.values(result)[0]
+                    // let {96_kbps}=result;
+                    // console.log(download_url)
+                    window.open(download_url)
+                    // console.log(download_url)
+                }).catch(function (error) {
+                    console.error(error);
+                });
             }
-            else{
-             fun("");
-             closePopup('playlistname');
-            closePopup('existingplaylist');
+            else {
+                fun("");
+                closePopup('playlistname');
+                closePopup('existingplaylist');
             }
-          })
-         
+        })
 
 
-  
+
+
     }
 })
 
@@ -518,12 +583,12 @@ downloadbtn.addEventListener('click', async ()=>{
 //     let data;
 //     await axios.post('/likes/getlikes',{
 //         "username":document.getElementById('user').innerHTML
-        
+
 //     })
 //     .then((res)=>{
 //         console.log(res)
 //         data=res
-       
+
 //     })
 //     // document.getElementById('1').innerHTML=data.lk[0];
 //     // document.getElementById('2').innerHTML=data.lk[0];
@@ -547,14 +612,14 @@ downloadbtn.addEventListener('click', async ()=>{
 // })
 // })
 
-function fun(s){
-   
-        let btn=document.getElementsByClassName('popup')[0];
-        btn.classList.remove('close');
-        btn.classList.add('show')
-    
- }
- document.getElementById('close').addEventListener('click',()=>{closePopup('popup')});
+function fun(s) {
+
+    let btn = document.getElementsByClassName('popup')[0];
+    btn.classList.remove('close');
+    btn.classList.add('show')
+
+}
+document.getElementById('close').addEventListener('click', () => { closePopup('popup') });
 //  btn_times.addEventListener('click', function fun2(){
 //     console.log('mc')
 //     let bt=document.getElementsByClassName('popup')[0];
@@ -564,36 +629,36 @@ function fun(s){
 
 
 
-function fun1(s){
-    if(s!=""){
-        document.getElementById("downloadtext").innerHTML=s;
-        document.getElementById("secondline").innerHTML="";
+function fun1(s) {
+    if (s != "") {
+        document.getElementById("downloadtext").innerHTML = s;
+        document.getElementById("secondline").innerHTML = "";
         // document.getElementById("subscribebtn").style.display="none";
-        document.getElementsByClassName("popup").width="10px";
-        let btn=document.getElementsByClassName('popupforlogin')[0];
-    btn.classList.remove('close');
-    btn.classList.add('show')
+        document.getElementsByClassName("popup").width = "10px";
+        let btn = document.getElementsByClassName('popupforlogin')[0];
+        btn.classList.remove('close');
+        btn.classList.add('show')
     }
-    else{
-    let btn=document.getElementsByClassName('popupforlogin')[0];
-    btn.classList.remove('close');
-    btn.classList.add('show')
+    else {
+        let btn = document.getElementsByClassName('popupforlogin')[0];
+        btn.classList.remove('close');
+        btn.classList.add('show')
     }
- }
+}
 
 
 
 
- let btn_times1=document.getElementById('close1');
- btn_times1.addEventListener('click', function fun2(){
+let btn_times1 = document.getElementById('close1');
+btn_times1.addEventListener('click', function fun2() {
     console.log('mc')
-    let bt=document.getElementsByClassName('popupforlogin')[0];
+    let bt = document.getElementsByClassName('popupforlogin')[0];
     bt.classList.remove('show');
-   bt.classList.add('close')
+    bt.classList.add('close')
 })
 
-let subscribebtn=document.getElementById('subscribebtn');
-subscribebtn.addEventListener('click',()=>{
+let subscribebtn = document.getElementById('subscribebtn');
+subscribebtn.addEventListener('click', () => {
     window.open('http://localhost:3000/payment')
 })
 
@@ -607,7 +672,7 @@ subscribebtn.addEventListener('click',()=>{
 //         fun1("You have to Login first");
 //     }
 //     // if(document.getElementById('user').innerHTML=='Login'){
-//     //     alert('You have to login first')
+//     //     swal('You have to login first')
 //     // }
 //     // else{
 //     //     await axios.post('/getuser',{
@@ -622,7 +687,7 @@ subscribebtn.addEventListener('click',()=>{
 //         window.location=`/user/?name=${usename}&email=${useemail}`
 //     }
 
-   
+
 // })
 
 
@@ -655,7 +720,7 @@ subscribebtn.addEventListener('click',()=>{
 //         fun1("You have to Login first");
 //     }
 //     // if(document.getElementById('user').innerHTML=='Login'){
-//     //     alert('You have to login first')
+//     //     swal('You have to login first')
 //     // }
 //     // else{
 //     //     await axios.post('/getuser',{
@@ -671,26 +736,25 @@ subscribebtn.addEventListener('click',()=>{
 //     }
 // })
 
-let newplaylistarray = Array.from(document.getElementsByClassName('newplaylist'));
-let existone = Array.from(document.getElementsByClassName('existone'));
+
 
 // closePopup('playlistname');
 // closePopup('existingplaylist');
 
-document.getElementById('close2').addEventListener('click',()=>{
+document.getElementById('close2').addEventListener('click', () => {
     closePopup('playlistname');
 });
-document.getElementById('close3').addEventListener('click',()=>{
+document.getElementById('close3').addEventListener('click', () => {
     closePopup('existingplaylist');
 });
 
-function closePopup(popupBox){
-    
-        let playlistname = document.getElementsByClassName(popupBox)[0];
-        // console.log(popupBox);
-        playlistname.classList.remove('show')
-        playlistname.classList.add('close')
-    
+function closePopup(popupBox) {
+
+    let playlistname = document.getElementsByClassName(popupBox)[0];
+    // console.log(popupBox);
+    playlistname.classList.remove('show')
+    playlistname.classList.add('close')
+
 }
 
 
@@ -698,7 +762,7 @@ function closePopup(popupBox){
 
 // closePlaylistPopup.addEventListener('click',()=>{
 //     let playlistname1 = document.getElementsByClassName('playlistname')[0];
-    
+
 //     playlistname1.classList.remove('show')
 //     playlistname1.classList.add('close')
 // })
@@ -706,79 +770,79 @@ function closePopup(popupBox){
 
 // closePlaylistPopup1.addEventListener('click',()=>{
 //     let playlistname1 = document.getElementsByClassName('existingplaylist')[0];
-    
+
 //     playlistname1.classList.remove('show')
 //     playlistname1.classList.add('close')
 // })
 
 newplaylistarray.forEach((item) => {
-    item.addEventListener('click', (ele,index) => {
+    item.addEventListener('click', (ele, index) => {
         // document.getElementById("downloadtext").innerHTML="Please enter playlist name";
         // document.getElementById("secondline").innerHTML="";
         // // document.getElementById("subscribebtn").style.display="none";
         // document.getElementsByClassName("popup").width="10px";
-        let btn=document.getElementsByClassName('playlistname')[0];
-        
+        let btn = document.getElementsByClassName('playlistname')[0];
+
         btn.classList.remove('close');
         btn.classList.add('show')
         closePopup('popup')
         closePopup('existingplaylist');
-        
-        document.getElementById('hiddenlink').innerHTML=`${ele.target.id}`
-        console.log("id print here "+ ele.target.id);
-        
+
+        document.getElementById('hiddenlink').innerHTML = `${ele.target.id}`
+        console.log("id print here " + ele.target.id);
+
     })
 })
 existone.forEach((item) => {
-    item.addEventListener('click', async (ele,index) => {
-        let btn=document.getElementsByClassName('existingplaylist')[0];
-        
+    item.addEventListener('click', async (ele, index) => {
+        let btn = document.getElementsByClassName('existingplaylist')[0];
+
         btn.classList.remove('close');
         btn.classList.add('show')
         closePopup('popup')
         closePopup('playlistname');
 
-let useremail=document.getElementById('useremail').innerHTML
-        await axios.post('/getexistplaylist',{
-            useremail:useremail,
-            song_name:ele.target.id,
-           }).then((res)=>{
-            let form=document.getElementsByClassName('form')[3];
-            let allplaylist=res.data.list;
-            form.innerHTML=""
-            form.innerHTML+=`<h4 id="h2inexist">Select Playlists</h4>`
-            allplaylist.map((e)=>{
-                form.innerHTML+=`
+        let useremail = document.getElementById('useremail').innerHTML
+        await axios.post('/getexistplaylist', {
+            useremail: useremail,
+            song_name: ele.target.id,
+        }).then((res) => {
+            let form = document.getElementsByClassName('form')[3];
+            let allplaylist = res.data.list;
+            form.innerHTML = ""
+            form.innerHTML += `<h4 id="h2inexist">Select Playlists</h4>`
+            allplaylist.map((e) => {
+                form.innerHTML += `
          <li><a id="${e.name}" class="existinglist">${e.name}</a></li>
                 `
             })
-            let datalist=Array.from(document.getElementsByClassName('existinglist'));
+            let datalist = Array.from(document.getElementsByClassName('existinglist'));
 
-            datalist.forEach((e)=>{
-                
-             e.addEventListener('click',async (element,index)=>{
-               await axios.post('/addtoexistingplaylist',{
-                useremail:useremail,
-                list_name:element.target.id,
-                songname:ele.target.id
-               })
-               .then((res)=>{
-                let btn=document.getElementsByClassName('existingplaylist')[0];
-        
-                btn.classList.remove('show')
-                btn.classList.add('close');
-                // alert(`Song has been added to ${element.target.id}`)
-               })
-             })
+            datalist.forEach((e) => {
+
+                e.addEventListener('click', async (element, index) => {
+                    await axios.post('/addtoexistingplaylist', {
+                        useremail: useremail,
+                        list_name: element.target.id,
+                        songname: ele.target.id
+                    })
+                        .then((res) => {
+                            let btn = document.getElementsByClassName('existingplaylist')[0];
+
+                            btn.classList.remove('show')
+                            btn.classList.add('close');
+                            // swal(`Song has been added to ${element.target.id}`)
+                        })
+                })
             })
 
 
-      
-            
-          })
+
 
         })
+
     })
+})
 
 
 
@@ -787,53 +851,54 @@ let useremail=document.getElementById('useremail').innerHTML
 
 
 
-let createplaylist=document.getElementById('createbutton')
-   createplaylist.addEventListener('click',async ()=>{
-    let playlist_name=document.getElementById('newname').value;
-    if(playlist_name==""){
-        alert('Please enter playlist name')
+let createplaylist = document.getElementById('createbutton')
+createplaylist.addEventListener('click', async () => {
+    let playlist_name = document.getElementById('newname').value;
+    if (playlist_name == "") {
+        // swal.fire('oops',"You haven't entered the playlist name?",'success')
+        swal({ icon: 'error', title: 'Oops', text: "You haven't entered the playlist name?" })
     }
-    else{
+    else {
         console.log(playlist_name)
-        await axios.post('/createnewplaylist',{
-            playlist_name:playlist_name,
-            song_url:document.getElementById('hiddenlink').innerHTML,
-            useremail:document.getElementById('useremail').innerHTML
-            }).then((res)=>{
-                console.log(res)
-                if(res.data.flag==false){
-                    alert('create a playlist with other name.Playlist with same name exist')
-                    let playlistname1 = document.getElementsByClassName('playlistname')[0];
-                    playlistname1.classList.remove('show')
-                    playlistname1.classList.add('close')
-                }
-                else{
-                    let playlistname1 = document.getElementsByClassName('playlistname')[0];
-                    playlistname1.classList.remove('show')
-                    playlistname1.classList.add('close')
-                    alert('Playlist has created')
-                }
-            
-            }).catch((err)=>{
-            alert('there is some error contact admin')
-            })
+        await axios.post('/createnewplaylist', {
+            playlist_name: playlist_name,
+            song_url: document.getElementById('hiddenlink').innerHTML,
+            useremail: document.getElementById('useremail').innerHTML
+        }).then((res) => {
+            console.log(res)
+            if (res.data.flag == false) {
+                swal('create a playlist with other name.Playlist with same name exist')
+                let playlistname1 = document.getElementsByClassName('playlistname')[0];
+                playlistname1.classList.remove('show')
+                playlistname1.classList.add('close')
+            }
+            else {
+                let playlistname1 = document.getElementsByClassName('playlistname')[0];
+                playlistname1.classList.remove('show')
+                playlistname1.classList.add('close')
+                // swal('Playlist has created')
+            }
+
+        }).catch((err) => {
+            swal('there is some error contact admin')
+        })
     }
-      
-   })
+
+})
 
 
-let sbtn= document.getElementById('sbtn');
-sbtn.addEventListener('click',()=>{
+let sbtn = document.getElementById('sbtn');
+sbtn.addEventListener('click', () => {
     console.log("gofun");
     let container = document.getElementsByClassName('container')[0];
     let user = document.getElementsByClassName("usercontainer")[0];
 
-    if(container.className == 'container show' && user.className=='usercontainer userhide'){
+    if (container.className == 'container show' && user.className == 'usercontainer userhide') {
         container.classList.remove('show');
         user.classList.remove('userhide');
         container.classList.add('hide');
         user.classList.add('usershow');
-    }else{
+    } else {
         user.classList.remove('usershow');
         container.classList.remove('hide');
         user.classList.add('userhide');

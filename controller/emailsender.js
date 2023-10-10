@@ -12,7 +12,6 @@ var transport=nodemailer.createTransport({
 })
 
 value=otp();
-// let value;
 
 
 

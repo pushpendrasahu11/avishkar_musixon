@@ -36,20 +36,37 @@ searchbutton.addEventListener('click', async ()=>{
             }
             searchSongArray = Array.from(document.getElementsByClassName('search_play_icon'));
             searchSongArray.forEach((item)=>{
-                item.addEventListener('click',(ele)=>{
+                item.addEventListener('click',async (ele)=>{
                     console.log('007')
                     playTrack(ele.target.id);
+                    if(document.getElementById('useremail').innerHTML!='Login'){
+                        try{
+                            await axios.post('/history',{
+                                "id":ele.target.id,
+                                "useremail":document.getElementById('useremail').innerHTML
+                            }).then((res)=>{
+                                console.log(res);
+                                swal('age')
+                                // res.redirect('/login')
+                            })
+                        }
+                        catch(err){
+                            swal(err.message)
+                        }
+                        
+                    }
+                    console.log('agge bad gaya')
                 })
             })
             searchresult.classList.add("bigbox");
-            // alert('done')
+            // swal('done')
         })
         .catch((err)=>{
-            alert(err.message)
+            swal(err.message)
         })
     }
     else{
-        alert('enter something')
+        swal('enter something')
     }
 })
 
@@ -90,14 +107,14 @@ window.onkeypress=async (e)=>{
                     })
                 })
                 searchresult.classList.add("bigbox");
-                // alert('done')
+                // swal('done')
             })
             .catch((err)=>{
-                alert(err.message)
+                swal(err.message)
             })
         }
         else{
-            alert('enter something')
+            swal('enter something')
         }
     }
 }

@@ -1,7 +1,5 @@
 const mongoose =require('mongoose')
 const emailval=require('email-validator')
-// require('dotenv').config({encoding:'rahul94631'});
-// console.log(process.env.mongos_passw);
 require('dotenv').config('../')
 const {userschema,googleschema}=require('./schema')
 mongoose.connect(process.env.mongo_connect)

@@ -97,6 +97,11 @@ body::-webkit-scrollbar{
     animation: underlineit 0.3s ease-in-out ;
     
 }
+#navbar .logo{
+    display: block;
+    height: 15px;
+    scale: 2;
+}
 
 #navbar .sbar{
     display: flex ;
@@ -148,7 +153,7 @@ button {
     cursor: pointer;
     transition: 0.25s ease-in-out;
 }
-.main .head button:hover{
+button:hover{
     background-color: #f77842;
 }
 
@@ -217,6 +222,7 @@ button {
 }
 
 .main .container .content .list{
+    /* display: flex; */
     width: 92%;
     height: auto;
     left: 4%;
@@ -254,6 +260,10 @@ button {
     width: 94%;
     height: 30px;
     /* border: 1px solid #000000; */
+}
+
+.main .container .content .list h3 .playall:hover{
+    background-color: #f77842;
 }
 
 .main .container .content .list .songs{
@@ -603,7 +613,7 @@ button {
     display: none;
 }
 
-.main .usercontainer .content .content_head{
+.main .usercontainer .content h3{
     /* border:1px solid #992525; */
     height: 40px;
     width: 96%;
@@ -633,14 +643,60 @@ button {
     white-space: nowrap;
 }
 
+.main .usercontainer .content .image_play{
+    width: 50px;
+    height: 50px;
+}
 
 .main .usercontainer .content li img{
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 4px;
     position: relative;
+    cursor: pointer;
+}
+
+.main .usercontainer .content .image_play .user_play_icon{
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.main .usercontainer .content .image_play .user_play_icon:hover{
+    opacity: 0.9;
+}
+
+.main .usercontainer .content div{
+    display:flex; 
+    align-items:center; 
+    margin-left:4%;
+}
+
+.main .usercontainer .content div input{
+    font-size:1rem;
+    border:1px solid black;
+    margin-left:1%; 
+    width:200px;
+    height:30px;
+    border-radius:4px;
+    padding-left: 3px;
+    font-weight:700;
     
 }
+
+.main .usercontainer .content div button{  
+    border-radius: 6px;
+    margin-left: 3%;
+}
+
+/* .main .usercontainer .content .bi-file-music{
+    font-size: 80px;
+} */
+
+
 
 /* queue */
 
@@ -649,18 +705,18 @@ button {
     background-color:#f7f7f7;
     position: absolute;
     overflow: auto;
-    height: 40px;
+    height: 0px;
     width: 60px;
     left: 48%;
     border: 2px solid #03c7c0;
     border-radius: 8px;
-    bottom: -42px;
+    bottom: 0px;
     opacity: 0;
     /* bottom:8vh; */
     /* left: 35%;
     width: 30%;
     height:70vh; */
-    transition:all 0.4s linear;
+    transition:all 0.5s linear;
 }
 
 .main .big{
@@ -792,7 +848,7 @@ button {
     width: 100%;
     background-color: #f7f7f7;
     box-shadow: 0 -5px 15px rgb(0,0,0,0.6);
-    position: sticky ;
+    position: relative ;
     /* flex: 2 0 auto; */
 }
  .music_player .progress_bar{
@@ -908,17 +964,40 @@ button {
  .music_player .bi-download{
     width: 5vw;
  }
+
+ .music_player .player_menu{
+    z-index: 11;
+    position: absolute;
+    left: 65vw;
+    bottom: calc(8vh + 5px);
+    background-color: #e3e3e3;
+    border: 1px solid #03c7c0;
+    border-radius: 8px;
+    list-style: none;
+ }
+
+ .music_player .player_menu li{
+     z-index: 1500;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 6px;
+    list-style: none;
+ }
+
+ .music_player .player_menu li:hover{
+   background-color: #cdcdcd;
+}
+
+ .music_player .player_menu li i{
+    font-size: 20px;
+    margin-right: 5px;
+    
+ }
+
  .music_player .bi-heart{
     color: red;
 }
-.music_player .bi-hearts{
-    color: #ed4956;
-}
-.music_player .bi-heart-fill{
-    color: #cf2a3a;
-    color: #e81224;
-    /* color: red; */
-}
+
 /* .music_player .bi-music-note-list:hover ~ .queue{
     height: 50vh;
 } */
@@ -1122,7 +1201,6 @@ button {
     top: -150%;
     left: 50%;
     opacity: 0;
-    
     width: 400px;
     height: 200px;
     margin-left: -200px;

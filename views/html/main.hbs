@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- ../ to go one folder back -->
     <title>MusixON</title>
 </head>
@@ -21,17 +22,11 @@
         <section class="head">
             <ul id="navbar"> 
                 <div id="navleft" style="display: flex;position: absolute; left: 2px;">
-                    <a href="#"><img id="logo" src="#" alt="" class="logo"></a>
+                   
+                    <li> <a href="#"><img id="logo" src="../images/icons8-music-robot-96 (1).ico" alt="" class="logo"></a></li>
                     <li><a href="/main">Music</a></li>
-                    <li><a href="/playlist">My Playlist</a></li>
-                    {{!-- <li><a href="/payment">Go Pro</a></li> --}}
-                    {{!-- <li id="sbtn"><a>user</a></li> --}}
-                    {{!-- <form method="POST">
-                        <li><a  id="userpage">LikedOne</a></li> 
-                    </form> --}}
-                    
-                     {{!-- <li><a id="/getlikes">LikedOne</a></li> --}}
-                    {{!-- <li><a href="#">{{username}}</a></li> --}}
+                    {{!-- <li><a href="/playlist">My Playlist</a></li> --}}
+
                     
                 </div>
                  
@@ -86,12 +81,10 @@
                     {{!-- <img src="../images/song1.jpg" alt=""> --}}
                 <h2 id="userpagename">{{username}}</h2>
                  
-                <h4 id="userpageemail" style="margin-left:15%; ">{{useremail}}</h4>
+                <h4 id="userpageemail" style="margin-right:0%; ">{{useremail}}</h4>
                 </div>
                 <div class="content">     
-                        <div  class="content_head">
                             <h3>Profile</h3>    
-                        </div>
                 </div>
             </div>
         </section>
@@ -121,7 +114,7 @@
             
             <i id='queue_icon'class="bi bi-music-note-list"></i>
             <div class="icons">
-                <i id="queue_mode" class="bi bi-repeat inactive"></i>
+                <i id="queue_mode" class="bi bi-repeat"></i>
                 <i class="bi play bi-skip-start-fill" id="play_back"></i>
                 <i id="music_play_icon" class="bi play bi-play-fill"></i>
                 <i class="bi play bi-skip-end-fill" id="play_next"></i>
@@ -129,7 +122,15 @@
             </div>
 
             <i class="bi bi-download"  id="downloadbtn"><a id="down" href=""></a></i> 
-
+            {{!-- <i class="bi bi-three-dots" id="menu_icon"></i>
+<div class="player_menu" >
+            
+            <li class="newplaylist" id=""><i class="bi bi-plus-circle" id=""></i>Add to New playlist</li>
+             <li class="existone" id=""><i class="bi bi-file-music-fill" id=""></i>Add to Existing playlist</li>
+             <li class="likeit" id=""><i class="likeicon bi bi-heart" id=""></i>Add to Liked Songs</li>
+             <li class="downloadit" id="downloadbtn"><i class="bi bi-download"  id=""><a id="down" href=""></a></i>Download</li>
+             
+            </div> --}}
             <div class="music_time" style="display:flex;">
                 <div id="current_time">00:00</div>
                 <span>/</span>

@@ -8,11 +8,13 @@ var currentArtists = document.getElementById('currentArtists');
 var duration;
 var music = new Audio();
 var isPlaylistAdded =0;
-var repeat=0;
+var repeat=2;
 var isShuffle = false;
 var queueSongArray = Array.from(document.getElementsByClassName('queue_play_icon'));;
 var playSongArray = Array.from(document.getElementsByClassName('play_icon'));
 var searchSongArray = Array.from(document.getElementsByClassName('search_play_icon'));
+var userSongArray = Array.from(document.getElementsByClassName('user_play_icon'));
+var minusIcon = Array.from(document.getElementsByClassName('bi bi-dash-circle'));
 
 let mainPlayIcon = document.getElementById('music_play_icon');
 let volumeIcon = document.getElementById('volume_icon');
@@ -40,15 +42,23 @@ updateTime(music);
 
 export async function playTrack(trackId){
 
-    if(trackId==currentId && repeat!=1) return;
+    if(trackId==currentId) {
+        playPause();
+        return ;
+    }
+//    code???/
+
+
     if(playSongArray.length == 0){
         playSongArray = Array.from(document.getElementsByClassName('play_icon'));
     }
     searchSongArray = Array.from(document.getElementsByClassName('search_play_icon'));
+    userSongArray = Array.from(document.getElementsByClassName('user_play_icon'));
 
     console.log(searchSongArray)
     allPlayButton(playSongArray,trackId); 
     allPlayButton(searchSongArray,trackId);    
+    allPlayButton(userSongArray,trackId);    
 
     let trackDetail = await allDetail1(trackId);
     currentImage.src=trackDetail.trackImage;
@@ -68,6 +78,7 @@ export async function playTrack(trackId){
     music.volume=0.6;
     mainPlayIcon.classList.remove('bi-play-fill');
     mainPlayIcon.classList.add('bi-pause-fill'); 
+   
 
 }
 
@@ -141,7 +152,7 @@ function allPauseButton(array,songid) {
     console.log('pause done ')
 }
 
-
+var queue=document.getElementsByClassName('queue')[0];
 var queueArray=[];
 
 queueIcon.addEventListener('click', () => {
@@ -153,6 +164,61 @@ document.addEventListener('click',(e)=>{
         tarQueue.classList.remove("big");
     }
 })
+
+export async function addPlaylistInQueue(array){
+    console.log("came here")
+    for(let i =0;i<array.length;i++){
+
+        let isPresent = queueArray.find((ele) => {
+                return ele == array[i].url;
+         })
+        // console.log(isPresent);
+        if(isPresent === undefined)
+        {
+        // console.log(isPresent+" added in queue")
+        // console.log(queueArray);
+        queueArray.push(array[i].url);
+
+
+        console.log('added ' + i);
+        
+        queue.innerHTML+=`<li class="songinqueue" id="${array[i].url}">
+            <div class="image_play">
+            <img src=${array[i].image[2].link} alt="">
+            <img class="queue_play_icon" id="${array[i].url}" src="../images/play.svg" alt="">
+            </div>
+        <div>
+            <h4>${array[i].name}</h4>
+            <h5>${array[i].primaryArtists}</h5>
+        </div>
+        <i class="bi bi-dash-circle" id="${array[i].url}"></i>
+        </li>`
+
+        }
+
+    }
+    minusIcon = Array.from(document.getElementsByClassName('bi bi-dash-circle'));
+    // minusIcon.forEach((item) => {
+    //     item.addEventListener('click', (ele) => {
+    //         console.log(ele.target.id);
+    //             let removeindex;
+    //             let j;
+    //             for(j=0;j<queueArray.length;j++){
+    //                 if(queueArray[j]==ele.target.id){
+    //                     removeindex = j;
+    //                     break;
+    //                 }
+    //             }
+
+    //             let lists = queue;
+
+    //             if (lists.hasChildNodes()) {
+    //                 lists.removeChild(lists.children[removeindex]);
+    //               }
+    //     })
+    // })
+    
+}
 
 export async function addTrackInQueue(trackId){
     let isPresent = queueArray.find((ele) => {
@@ -168,49 +234,67 @@ export async function addTrackInQueue(trackId){
 
 
     let queue=document.getElementsByClassName('queue')[0];
-    queue.innerHTML+=`<li >
+    queue.innerHTML+=`<li class="songinqueue" id="${currentId}">
         <div class="image_play">
         <img src=${currentImage.src} alt="">
         <img class="queue_play_icon" id="${currentId}" src="../images/play.svg" alt="">
-    </div>
+        </div>
     <div>
         <h4>${currentTitle.innerHTML}</h4>
         <h5>${currentArtists.innerHTML}</h5>
     </div>
-    <i class="bi bi-dash-circle"></i>
+    <i class="bi bi-dash-circle" id="${currentId}"></i>
     </li>`
 
-    // if(!isPlaylistAdded){
-        
-    //     hotHitsHindi.map((obj)=>{
-    //         let trackArtists = '';
-    //         obj.track.artists.map((obj)=>{
-    //             trackArtists += obj.name + ', ';
-    //         });
-    //         queue.innerHTML+=`<li >
-    //         <div class="image_play">
-    //             <img src=${obj.track.album.images[0].url} alt="">
-    //             <img class="play_icon" id=${obj.track.id} src="../images/play.svg" alt="">
-    //         </div>
-    //         <div>
-    //             <h4>${obj.track.name}</h4>
-    //             <h5>${trackArtists.slice(0,-2)}</h5>
-    //         </div>
-    //         <i class="bi bi-dash-circle"></i>
-    //         </li>`
-    //     })
-    // }
+   
 
     }
     queueSongArray = Array.from(document.getElementsByClassName('queue_play_icon'));
     // playplaylist(queueSongArray);
     // console.log(queueSongArray);
 
+    minusIcon = Array.from(document.getElementsByClassName('bi bi-dash-circle'));
+    minusIcon.forEach((item) => {
+        item.addEventListener('click', (ele) => {
+            console.log(ele.target.id);
+            let removeindex;
+            let j;
+            for(j=0;j<queueArray.length;j++){
+                if(queueArray[j]==ele.target.id){
+                    removeindex = j;
+                    break;
+                }
+            }
 
+            queueArray.splice(removeindex,1);
+            let lists = queue;
+            
+            if (lists.hasChildNodes()) {
+                console.log(removeindex);
+                lists.removeChild(lists.children[removeindex+1]);
+              }
+        })
+    })
     
     queueSongArray.forEach((item) => {
-            item.addEventListener('click', (ele) => {
+            item.addEventListener('click',async (ele) => {
                 playTrack(ele.target.id);
+                if(document.getElementById('useremail').innerHTML!='Login'){
+                    try{
+                        await axios.post('/history',{
+                            "id":ele.target.id,
+                            "useremail":document.getElementById('useremail').innerHTML
+                        }).then((res)=>{
+                            console.log(res);
+                            alert('age')
+                        })
+                    }
+                    catch(err){
+                        alert(err.message)
+                    }
+                    
+                }
+                console.log('agge bad gaya')
             })
         })
 
@@ -248,8 +332,7 @@ shuffleIcon.addEventListener('click',()=>{
     }
 })
 
-mainPlayIcon.addEventListener('click', () => {
-    
+function playPause(){
     if (music.paused || music.currentTime <= 0) {
         music.play();
         mainPlayIcon.classList.remove('bi-play-fill');
@@ -257,6 +340,7 @@ mainPlayIcon.addEventListener('click', () => {
         console.log(currentId+ " in main play" )
         allPlayButton(queueSongArray,currentId);
         allPlayButton(playSongArray,currentId);
+        allPlayButton(userSongArray,currentId);
 
     } else {
         music.pause();
@@ -265,49 +349,18 @@ mainPlayIcon.addEventListener('click', () => {
         console.log(currentId+ "in main pause" )
         allPauseButton(queueSongArray,currentId);
         allPauseButton(playSongArray,currentId);
+        allPauseButton(userSongArray,currentId);
     }
+}
+
+mainPlayIcon.addEventListener('click', () => {
+    playPause();
 })
-// mainPlayIcon.addEventListener('keypress',(e)=>{
-//     if(e.keyCode==32){
-//         console.log('key is pressed')
-//         if (music.paused || music.currentTime <= 0) {
-//             music.play();
-//             mainPlayIcon.classList.remove('bi-play-fill');
-//             mainPlayIcon.classList.add('bi-pause-fill');
-//             console.log(currentId+ " in main play" )
-//             allPlayButton(queueSongArray,currentId);
-//             allPlayButton(playSongArray,currentId);
-    
-//         } else {
-//             music.pause();
-//             mainPlayIcon.classList.add('bi-play-fill');
-//             mainPlayIcon.classList.remove('bi-pause-fill');
-//             console.log(currentId+ "in main pause" )
-//             allPauseButton(queueSongArray,currentId);
-//             allPauseButton(playSongArray,currentId);
-//         }
-//     }
-//     console.log(e)
-// })
+
 window.onkeydown=function(e){
     if(e.keyCode==32){
         console.log('key is pressed')
-        if (music.paused || music.currentTime <= 0) {
-            music.play();
-            mainPlayIcon.classList.remove('bi-play-fill');
-            mainPlayIcon.classList.add('bi-pause-fill');
-            console.log(currentId+ " in main play" )
-            allPlayButton(queueSongArray,currentId);
-            allPlayButton(playSongArray,currentId);
-    
-        } else {
-            music.pause();
-            mainPlayIcon.classList.add('bi-play-fill');
-            mainPlayIcon.classList.remove('bi-pause-fill');
-            console.log(currentId+ "in main pause" )
-            allPauseButton(queueSongArray,currentId);
-            allPauseButton(playSongArray,currentId);
-        }
+        playPause();
     }
 }
 
@@ -407,3 +460,33 @@ currentVolume.addEventListener("input", () => {
     
 })
 
+// let menu_icon = document.getElementById('menu_icon');
+// let playerMenu = document.getElementsByClassName('player_menu')[0];
+
+// menu_icon.addEventListener('click',()=>{
+//     playerMenu.innerHTML = ''
+//     playerMenu.innerHTML += `
+    
+//             <li class="newplaylist" id="${currentId}"><i class="bi bi-plus-circle" id=""></i>Add to New playlist</li>
+//              <li class="existone" id="${currentId}"><i class="bi bi-file-music-fill" id=""></i>Add to Existing playlist</li>
+//              <li class="likeit" id="${currentId}"><i class="bi bi-heart" id=""></i>Add to Liked Songs</li>
+//              <li class="downloadit" id="downloadbtn"><i class="bi bi-download"  id="downloadbtn"><a id="down" href=""></a></i>Download</li>
+
+//     `
+// })
+
+// export function insertId(){
+
+//     let playerMenu = document.getElementsByClassName('player_menu')[0];
+//     playerMenu.innerHTML = ''
+//     playerMenu.innerHTML += `
+    
+//             <li class="newplaylist" id="${currentId}"><i class="bi bi-plus-circle" id=""></i>Add to New playlist</li>
+//              <li class="existone" id="${currentId}"><i class="bi bi-file-music-fill" id=""></i>Add to Existing playlist</li>
+//              <li class="likeit" id="${currentId}"><i class="bi bi-heart" id=""></i>Add to Liked Songs</li>
+//              <li class="downloadit" id="downloadbtn"><i class="bi bi-download"  id="downloadbtn"><a id="down" href=""></a></i>Download</li>
+
+//     `
+
+//     return 1;
+// }
